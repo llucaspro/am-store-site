@@ -559,8 +559,7 @@ ul{list-style:none;margin:0;padding:0;}button{font-family:inherit;cursor:pointer
 })();
 </script>
 
-<!-- AM Store: Produtos Dinâmicos via Supabase -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
 <script>
 (function(){
 var SB_URL='https://glzhjqltsrhyapqbgubz.supabase.co';
@@ -601,6 +600,145 @@ async function loadDynamic(){
     });}
   });
 }
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',loadDynamic);}
+else{loadDynamic();}
+})();
+</script>
+<!-- AM Store: Produtos Dinâmicos via Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+'use strict';
+var SB_URL='https://glzhjqltsrhyapqbgubz.supabase.co';
+var SB_KEY='sb_publishable_zWwK66Ms1A-ReGs1FIMsJw_LbwBIBpK';
+var CATEGORY='camisetas';
+var PER_PAGE=8;
+var currentPage=1;
+var allCards=[];
+
+function esc(s){return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):''}
+
+function getActiveFilter(){
+  var b=document.querySelector('.fbtn.on');
+  return b?(b.getAttribute('data-f')||'all'):'all';
+}
+
+function getVisible(){
+  var f=getActiveFilter();
+  return allCards.filter(function(c){
+    return f==='all'||c.getAttribute('data-f')===f||c.getAttribute('data-sb')==='1';
+  });
+}
+
+function renderPage(pg){
+  currentPage=pg;
+  var visible=getVisible();
+  var total=visible.length;
+  var totalPages=Math.max(1,Math.ceil(total/PER_PAGE));
+  if(currentPage>totalPages)currentPage=1;
+  var start=(currentPage-1)*PER_PAGE;
+  var end=start+PER_PAGE;
+  allCards.forEach(function(c){c.style.display='none';});
+  visible.slice(start,end).forEach(function(c){c.style.display='';});
+  buildPagination(currentPage,totalPages);
+}
+
+function buildPagination(cur,total){
+  var nav=document.querySelector('.pagination');
+  if(!nav)return;
+  if(total<=1){nav.style.display='none';return;}
+  nav.style.display='';
+  var html='';
+  var start=Math.max(1,cur-2);
+  var end=Math.min(total,cur+2);
+  if(start>1)html+='<a href="#" data-pg="1">1</a>'+(start>2?'<span style="color:var(--stone);padding:0 4px">…</span>':'');
+  for(var i=start;i<=end;i++)html+='<a href="#" class="'+(i===cur?'on':'')+'" data-pg="'+i+'">'+i+'</a>';
+  if(end<total)html+=(end<total-1?'<span style="color:var(--stone);padding:0 4px">…</span>':'')+'<a href="#" data-pg="'+total+'">'+total+'</a>';
+  if(cur<total)html+='<a href="#" data-pg="'+(cur+1)+'">→</a>';
+  nav.innerHTML=html;
+  nav.querySelectorAll('a[data-pg]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var pg=parseInt(a.getAttribute('data-pg'));
+      if(!isNaN(pg)){renderPage(pg);window.scrollTo({top:0,behavior:'smooth'});}
+    });
+  });
+}
+
+function hookFilters(){
+  document.querySelectorAll('.fbtn').forEach(function(b){
+    b.addEventListener('click',function(){renderPage(1);});
+  });
+}
+
+function createCard(p){
+  var a=document.createElement('article');
+  a.className='pcard';
+  a.setAttribute('data-sb','1');
+  var badgeHtml='';
+  if(p.badge){
+    var bls=(p.badge.toUpperCase()==='SALE')?'ptag ptag-sale':'ptag ptag-new';
+    badgeHtml='<span class="'+bls+'">'+esc(p.badge)+'</span>';
+  }
+  var imgHtml=p.image_url?'<img class="pcard__img" src="'+esc(p.image_url)+'" alt="'+esc(p.name)+'" loading="lazy">':'';
+  a.innerHTML=
+    '<div class="pcard__media">'+imgHtml+badgeHtml+
+    '<button class="wbtn" type="button" aria-label="Favoritar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>'+
+    '<div class="pcard__cta"><button class="add-btn" data-p="'+esc(p.name)+'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg> Adicionar ao carrinho</button></div></div>'+
+    '<div class="pcard__body"><div class="pcard__name">'+esc(p.name)+'</div><div class="pcard__desc">'+esc(p.description||'')+'</div>'+
+    '<div class="pcard__foot"><span class="pcard__price">'+esc(p.price)+'</span></div></div>';
+
+  var wb=a.querySelector('.wbtn');
+  if(wb)wb.addEventListener('click',function(){wb.classList.toggle('on');});
+
+  var addBtn=a.querySelector('.add-btn');
+  if(addBtn){
+    var orig=addBtn.innerHTML;
+    addBtn.addEventListener('click',function(){
+      var CK='am_cart';
+      function gc(){try{return JSON.parse(localStorage.getItem(CK)||'[]');}catch(e){return[];}}
+      function sc(c){try{localStorage.setItem(CK,JSON.stringify(c));}catch(e){}}
+      var c=gc(),it=c.find(function(x){return x.name===p.name;});
+      if(it){it.qty++;}else{c.push({name:p.name,price:p.price,img:p.image_url||'',qty:1});}
+      sc(c);
+      var badge=document.getElementById('cartBadge');
+      if(badge){badge.textContent=c.reduce(function(s,i){return s+(i.qty||0);},0);}
+      addBtn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"></polyline></svg> Adicionado';
+      addBtn.disabled=true;
+      setTimeout(function(){addBtn.innerHTML=orig;addBtn.disabled=false;},1500);
+    });
+  }
+  return a;
+}
+
+async function loadDynamic(){
+  if(typeof supabase==='undefined'){initStaticPagination();return;}
+  var sb=supabase.createClient(SB_URL,SB_KEY);
+  var res=await sb.from('products').select('*').eq('category',CATEGORY).order('created_at',{ascending:false});
+
+  if(res.error||!res.data||res.data.length===0){
+    initStaticPagination();return;
+  }
+
+  var grid=document.querySelector('.pgrid');
+  if(!grid){initStaticPagination();return;}
+
+  // Replace hardcoded products with Supabase ones
+  grid.innerHTML='';
+  allCards=res.data.map(createCard);
+  allCards.forEach(function(c){grid.appendChild(c);});
+  hookFilters();
+  renderPage(1);
+}
+
+function initStaticPagination(){
+  var grid=document.querySelector('.pgrid');
+  if(!grid)return;
+  allCards=Array.from(grid.querySelectorAll('.pcard'));
+  hookFilters();
+  renderPage(1);
+}
+
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',loadDynamic);}
 else{loadDynamic();}
 })();
