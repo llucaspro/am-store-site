@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<title>Tênis — AM Store</title>
+<meta name="description" content="Estilo urbano com presença — cada par pensado para quem valoriza o detalhe. — AM Store, moda masculina de alto padrão.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--onyx:#0b0b0a;--onyx-2:#131210;--onyx-3:#1c1a17;--line:#2c2924;--gold:#c6a15b;--gold-bright:#e9c877;--gold-deep:#7c5e2e;--ivory:#f4f1ea;--stone:#9c968a;--radius-sm:10px;--radius:14px;--radius-lg:16px;--font-display:'Bebas Neue',sans-serif;--font-head:'Montserrat',sans-serif;--font-body:'Inter',sans-serif;--ease:cubic-bezier(.22,.61,.36,1);--container:1240px;}
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--onyx);color:var(--ivory);font-family:var(--font-body);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;margin:0;padding:0;}
+button{font-family:inherit;cursor:pointer;}
+h1,h2,h3,p{margin:0;}
+::selection{background:var(--gold);color:var(--onyx);}
+:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px;}
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:24px;}
+@media(min-width:768px){.container{padding-inline:40px;}}
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:.75rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.section{padding:100px 0;position:relative;}
+.section--alt{background:var(--onyx-2);}
+@media(max-width:768px){.section{padding:64px 0;}}
+.section__head{max-width:640px;margin-bottom:56px;}
+.section__head.center{max-width:640px;margin-inline:auto;text-align:center;}
+.section__head.center .eyebrow{justify-content:center;}
+.section__head.center .eyebrow::before{display:none;}
+.section__title{font-family:var(--font-head);font-weight:800;font-size:clamp(1.9rem,3.4vw,2.7rem);letter-spacing:-.01em;color:var(--ivory);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 34px;font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border-radius:var(--radius-sm);border:1px solid transparent;transition:all .35s var(--ease);white-space:nowrap;}
+.btn--primary{background:var(--onyx);border-color:var(--gold);color:var(--gold-bright);}
+.btn--primary:hover{background:var(--gold);color:var(--onyx);box-shadow:0 0 0 1px var(--gold),0 8px 30px -6px rgba(198,161,91,.55);transform:translateY(-2px);}
+.btn--ghost{background:transparent;border-color:var(--line);color:var(--ivory);}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold-bright);}
+.btn--sm{padding:11px 22px;font-size:.72rem;}
+.icon{width:19px;height:19px;flex-shrink:0;}
+.icon-sm{width:15px;height:15px;}
+/* topbar */
+.topbar{background:#000;border-bottom:1px solid var(--line);font-size:.72rem;letter-spacing:.06em;color:var(--stone);}
+.topbar__row{display:flex;align-items:center;justify-content:center;gap:28px;padding:9px 24px;text-align:center;flex-wrap:wrap;}
+.topbar__row span:nth-child(2),.topbar__row span:nth-child(3){display:none;}
+@media(min-width:640px){.topbar__row{justify-content:space-between;}.topbar__row span:nth-child(2),.topbar__row span:nth-child(3){display:inline;}}
+.topbar__row a:hover{color:var(--gold-bright);}
+.topbar__links{display:flex;gap:20px;}
+/* header */
+.header{position:sticky;top:0;z-index:100;background:transparent;border-bottom:1px solid transparent;transition:background .4s var(--ease),border-color .4s var(--ease),backdrop-filter .4s var(--ease);}
+.header.is-scrolled{background:rgba(11,11,10,.78);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--line);}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;}
+.nav__links{display:none;gap:34px;font-size:.78rem;font-weight:600;letter-spacing:.12em;}
+.nav__links a{position:relative;padding-bottom:6px;}
+.nav__links a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);}
+.nav__links a:hover::after{transform:scaleX(1);}
+.nav__links a:hover{color:var(--gold-bright);}
+.nav__logo{font-family:var(--font-head);font-weight:800;font-size:1.35rem;letter-spacing:.14em;position:relative;padding-bottom:4px;}
+.nav__logo span{color:var(--gold);}
+.nav__actions{display:flex;align-items:center;gap:6px;}
+.icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:transparent;border:none;color:var(--ivory);border-radius:50%;transition:color .25s,background .25s;}
+.icon-btn:hover{color:var(--gold-bright);background:rgba(198,161,91,.08);}
+.icon-btn .badge{position:absolute;top:1px;right:1px;width:15px;height:15px;background:var(--gold);color:var(--onyx);font-size:.6rem;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.icon-btn.hidden-mobile{display:none;}
+@media(min-width:640px){.icon-btn.hidden-mobile{display:inline-flex;}}
+.mobile-toggle{background:none;border:none;color:var(--ivory);width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;}
+@media(min-width:960px){.nav__links{display:flex;}.mobile-toggle{display:none;}}
+.mobile-menu{position:fixed;inset:0 0 0 auto;width:min(320px,84vw);height:100vh;background:var(--onyx-2);border-left:1px solid var(--line);z-index:200;padding:28px 26px;transform:translateX(100%);transition:transform .4s var(--ease);display:flex;flex-direction:column;gap:28px;}
+.mobile-menu.is-open{transform:translateX(0);}
+.mobile-menu__top{display:flex;justify-content:space-between;align-items:center;}
+.mobile-menu__links{display:flex;flex-direction:column;gap:22px;font-size:1rem;font-weight:600;letter-spacing:.06em;}
+.mobile-menu__links a{display:flex;justify-content:space-between;align-items:center;color:var(--ivory);}
+.mobile-menu__links a:hover{color:var(--gold-bright);}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:190;opacity:0;visibility:hidden;transition:opacity .35s;}
+.scrim.is-open{opacity:1;visibility:visible;}
+/* category hero */
+.cat-hero{padding:80px 0 60px;border-bottom:1px solid var(--line);}
+.cat-hero__eyebrow{display:flex;align-items:center;gap:12px;font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.cat-hero__eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.cat-hero__title{font-family:var(--font-head);font-weight:800;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.01em;text-transform:uppercase;margin-bottom:12px;}
+.cat-hero__sub{color:var(--stone);font-size:1rem;max-width:520px;}
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:48px;}
+.filter-btn{padding:9px 22px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--stone);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .25s var(--ease);}
+.filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold-bright);background:rgba(198,161,91,.07);}
+/* products grid */
+.products-grid{display:grid;grid-template-columns:1fr;gap:28px 24px;}
+@media(min-width:640px){.products-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1000px){.products-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:1280px){.products-grid{grid-template-columns:repeat(4,1fr);}}
+.product-card{position:relative;}
+.product-card__media{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;background:var(--onyx-3);border:1px solid var(--line);transition:border-color .4s,box-shadow .4s;}
+.product-card:hover .product-card__media{border-color:var(--gold);box-shadow:0 14px 40px -14px rgba(198,161,91,.35);}
+.product-card__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
+.product-card:hover .product-card__img{transform:scale(1.06);}
+.badge-tag{position:absolute;top:14px;left:14px;z-index:2;padding:5px 12px;border-radius:999px;font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.badge-tag--new{background:var(--gold);color:var(--onyx);}
+.badge-tag--sale{background:#c0392b;color:#fff;}
+.wishlist-btn{position:absolute;top:14px;right:14px;z-index:2;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(11,11,10,.55);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:50%;color:var(--ivory);transition:color .25s,border-color .25s,transform .25s;}
+.wishlist-btn:hover{border-color:var(--gold);}
+.wishlist-btn.is-active{color:var(--gold-bright);border-color:var(--gold);}
+.wishlist-btn.is-active svg{fill:var(--gold-bright);}
+.wishlist-btn.pulse{animation:pulse .35s var(--ease);}
+@keyframes pulse{50%{transform:scale(1.22);}}
+.product-card__overlay{position:absolute;left:14px;right:14px;bottom:14px;z-index:2;transform:translateY(14px);opacity:0;transition:transform .4s var(--ease),opacity .4s var(--ease);}
+.product-card:hover .product-card__overlay,.product-card:focus-within .product-card__overlay{transform:translateY(0);opacity:1;}
+@media(hover:none){.product-card__overlay{position:static;transform:none;opacity:1;margin-top:12px;}}
+.add-to-cart{width:100%;padding:12px 16px;border-radius:999px;background:var(--gold);color:var(--onyx);border:none;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .25s,transform .2s;}
+.add-to-cart:hover{background:var(--gold-bright);}
+.add-to-cart:active{transform:scale(.97);}
+.product-card__body{padding-top:16px;}
+.product-card__name{font-family:var(--font-head);font-weight:600;font-size:1rem;margin-bottom:4px;}
+.product-card__desc{font-size:.82rem;color:var(--stone);margin-bottom:10px;}
+.product-card__footer{display:flex;align-items:center;justify-content:space-between;}
+.product-card__price{font-family:var(--font-head);font-weight:700;color:var(--gold-bright);font-size:1.05rem;}
+.product-card__old-price{font-size:.82rem;color:var(--stone);text-decoration:line-through;}
+/* pagination */
+.pagination{display:flex;justify-content:center;gap:8px;margin-top:64px;}
+.pagination a{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--radius-sm);font-size:.82rem;font-weight:600;transition:all .25s;}
+.pagination a:hover,.pagination a.active{border-color:var(--gold);color:var(--gold-bright);}
+/* footer */
+.footer{background:#000;border-top:1px dashed var(--line);position:relative;padding-top:80px;}
+.footer::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:140px;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 8px,transparent 8px 14px);}
+.footer__grid{display:grid;grid-template-columns:1fr;gap:44px;padding-bottom:56px;border-bottom:1px solid var(--line);}
+@media(min-width:768px){.footer__grid{grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:32px;}}
+.footer__logo{font-family:var(--font-head);font-weight:800;font-size:1.3rem;letter-spacing:.14em;margin-bottom:14px;}
+.footer__logo span{color:var(--gold);}
+.footer__tagline{color:var(--stone);font-size:.88rem;max-width:280px;margin-bottom:22px;}
+.footer__social{display:flex;gap:10px;}
+.footer__social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:border-color .25s,color .25s;}
+.footer__social a:hover{border-color:var(--gold);color:var(--gold-bright);}
+.footer__title{font-family:var(--font-head);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:20px;}
+.footer__links{display:flex;flex-direction:column;gap:12px;}
+.footer__links a{font-size:.88rem;color:var(--stone);transition:color .25s;}
+.footer__links a:hover{color:var(--ivory);}
+.footer__form{display:flex;gap:0;margin-top:18px;border:1px solid var(--line);border-radius:999px;overflow:hidden;padding:4px;}
+.footer__form input{flex:1;min-width:0;background:transparent;border:none;color:var(--ivory);padding:10px 16px;font-family:inherit;font-size:.85rem;}
+.footer__form input:focus{outline:none;}
+.footer__form input::placeholder{color:var(--stone);}
+.footer__form button{background:var(--gold);color:var(--onyx);border:none;padding:10px 20px;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .25s;}
+.footer__form button:hover{background:var(--gold-bright);}
+.footer__bottom{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:space-between;padding:26px 0 32px;font-size:.75rem;color:var(--stone);text-align:center;}
+@media(min-width:640px){.footer__bottom{flex-direction:row;text-align:left;}}
+.footer__bottom a:hover{color:var(--gold-bright);}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation-duration:.01ms !important;transition-duration:.01ms !important;}.reveal{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar__row">
+    <span>FRETE GRÁTIS ACIMA DE R$ 399</span>
+    <span>|</span>
+    <span class="topbar__links">
+      <a href="index.html">HOME</a>
+      <a href="#">RASTREAR PEDIDO</a>
+      <a href="#">AJUDA</a>
+    </span>
+  </div>
+</div>
+<header class="header" id="siteHeader">
+  <div class="container">
+    <nav class="nav">
+      <ul class="nav__links">
+        <li><a href="camisetas.html">CAMISETAS</a></li>
+        <li><a href="camisas.html">CAMISAS</a></li>
+        <li><a href="calcas.html">CALÇAS</a></li>
+      </ul>
+      <a href="index.html" class="nav__logo">AM<span>·</span>STORE</a>
+      <ul class="nav__links">
+        <li><a href="tenis.html">TÊNIS</a></li>
+        <li><a href="acessorios.html">ACESSÓRIOS</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="icon-btn hidden-mobile" aria-label="Buscar">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="icon-btn hidden-mobile" aria-label="Entrar na conta">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Carrinho">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu" aria-expanded="false">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="scrim" id="scrim"></div>
+<aside class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu__top">
+    <span class="nav__logo">AM<span>·</span>STORE</span>
+    <button class="icon-btn" id="mobileClose" aria-label="Fechar menu">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+    </button>
+  </div>
+  <ul class="mobile-menu__links">
+    <li><a href="index.html">Home <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
+    <li><a href="camisetas.html">Camisetas <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
+    <li><a href="camisas.html">Camisas <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
+    <li><a href="calcas.html">Calças <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
+    <li><a href="tenis.html">Tênis <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
+    <li><a href="acessorios.html">Acessórios <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
+  </ul>
+</aside>
+<section class="cat-hero">
+  <div class="container">
+    <nav style="font-size:.72rem;color:var(--stone);margin-bottom:24px;letter-spacing:.06em;">
+      <a href="index.html" style="color:var(--stone);">HOME</a>
+      <span style="margin:0 10px;color:var(--line);">/</span>
+      <span style="color:var(--gold);">TÊNIS</span>
+    </nav>
+    <p class="cat-hero__eyebrow">COLEÇÃO 2026</p>
+    <h1 class="cat-hero__title">Tênis</h1>
+    <p class="cat-hero__sub">Estilo urbano com presença — cada par pensado para quem valoriza o detalhe.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="filters reveal">
+      <button class="filter-btn active">Todos</button>
+   <button class="filter-btn">Casual</button>
+   <button class="filter-btn">Esportivo</button>
+   <button class="filter-btn">Social</button>
+   <button class="filter-btn">Couro</button>
+   <button class="filter-btn">Chunky</button>
+    </div>
+    <div class="products-grid">
+      <article class="product-card reveal">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1608229751021-ed4bd8677753?auto=format&fit=crop&w=600&q=80" alt="Tênis Court Signature" loading="lazy">
+    <span class="badge-tag badge-tag--new">NOVO</span>
+    <button class="wishlist-btn" aria-label="Favoritar Tênis Court Signature">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Tênis Court Signature">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Tênis Court Signature</div>
+    <div class="product-card__desc">Couro e camurça, sola vulcanizada</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 459,90</div>
+      
+    </div>
+  </div>
+</article>
+<article class="product-card reveal reveal-delay-1">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Tênis Runner Elite" loading="lazy">
+    
+    <button class="wishlist-btn" aria-label="Favoritar Tênis Runner Elite">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Tênis Runner Elite">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Tênis Runner Elite</div>
+    <div class="product-card__desc">Mesh respirável, amortecimento EVA</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 389,90</div>
+      
+    </div>
+  </div>
+</article>
+<article class="product-card reveal reveal-delay-2">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=600&q=80" alt="Tênis Couro Liso Branco" loading="lazy">
+    <span class="badge-tag badge-tag--new">NOVO</span>
+    <button class="wishlist-btn" aria-label="Favoritar Tênis Couro Liso Branco">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Tênis Couro Liso Branco">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Tênis Couro Liso Branco</div>
+    <div class="product-card__desc">Couro legítimo, visual minimalista</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 499,90</div>
+      
+    </div>
+  </div>
+</article>
+<article class="product-card reveal">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80" alt="Tênis Chunky Sola Grossa" loading="lazy">
+    
+    <button class="wishlist-btn" aria-label="Favoritar Tênis Chunky Sola Grossa">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Tênis Chunky Sola Grossa">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Tênis Chunky Sola Grossa</div>
+    <div class="product-card__desc">Dad shoe premium, conforto máximo</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 549,90</div>
+      
+    </div>
+  </div>
+</article>
+<article class="product-card reveal reveal-delay-1">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1463100099107-aa0980c362e6?auto=format&fit=crop&w=600&q=80" alt="Tênis Casual Canvas" loading="lazy">
+    <span class="badge-tag badge-tag--sale">SALE</span>
+    <button class="wishlist-btn" aria-label="Favoritar Tênis Casual Canvas">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Tênis Casual Canvas">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Tênis Casual Canvas</div>
+    <div class="product-card__desc">Lona reforçada, solado borracha</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 249,90</div>
+      <span class="product-card__old-price">R$ 299,90</span>
+    </div>
+  </div>
+</article>
+<article class="product-card reveal reveal-delay-2">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1598214886806-c2bc2d0b4b5e?auto=format&fit=crop&w=600&q=80" alt="Tênis Social Mocassim" loading="lazy">
+    
+    <button class="wishlist-btn" aria-label="Favoritar Tênis Social Mocassim">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Tênis Social Mocassim">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Tênis Social Mocassim</div>
+    <div class="product-card__desc">Couro italiano, sem cadarço</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 599,90</div>
+      
+    </div>
+  </div>
+</article>
+<article class="product-card reveal">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1625048836280-29c2c4dfcb7d?auto=format&fit=crop&w=600&q=80" alt="Tênis Trail Off-Road" loading="lazy">
+    
+    <button class="wishlist-btn" aria-label="Favoritar Tênis Trail Off-Road">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Tênis Trail Off-Road">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Tênis Trail Off-Road</div>
+    <div class="product-card__desc">Sola trekking, impermeável</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 479,90</div>
+      
+    </div>
+  </div>
+</article>
+<article class="product-card reveal reveal-delay-1">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80" alt="Tênis Slip-On Premium" loading="lazy">
+    <span class="badge-tag badge-tag--sale">SALE</span>
+    <button class="wishlist-btn" aria-label="Favoritar Tênis Slip-On Premium">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Tênis Slip-On Premium">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Tênis Slip-On Premium</div>
+    <div class="product-card__desc">Sem cadarço, elástico lateral</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 329,90</div>
+      <span class="product-card__old-price">R$ 389,90</span>
+    </div>
+  </div>
+</article>
+<article class="product-card reveal reveal-delay-2">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=600&q=80" alt="Tênis Skate Pro" loading="lazy">
+    <span class="badge-tag badge-tag--new">NOVO</span>
+    <button class="wishlist-btn" aria-label="Favoritar Tênis Skate Pro">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Tênis Skate Pro">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Tênis Skate Pro</div>
+    <div class="product-card__desc">Suede reforçado, palmilha acolchoada</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 349,90</div>
+      
+    </div>
+  </div>
+</article>
+    </div>
+    <div class="pagination reveal">
+      <a href="#" class="active">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">→</a>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo">AM<span>·</span>STORE</div>
+        <p class="footer__tagline">Moda masculina para quem busca presença e autenticidade.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__title">Institucional</div>
+        <ul class="footer__links">
+          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="#">Trabalhe conosco</a></li>
+          <li><a href="#">Trocas e devoluções</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__title">Categorias</div>
+        <ul class="footer__links">
+          <li><a href="camisetas.html">Camisetas</a></li>
+          <li><a href="camisas.html">Camisas</a></li>
+          <li><a href="calcas.html">Calças</a></li>
+          <li><a href="tenis.html">Tênis</a></li>
+          <li><a href="acessorios.html">Acessórios</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__title">Fique por dentro</div>
+        <p class="footer__tagline" style="margin-bottom:0;">Novidades, lançamentos e ofertas exclusivas direto no seu e-mail.</p>
+        <form class="footer__form" onsubmit="return false;">
+          <input type="email" placeholder="Seu e-mail" required aria-label="Seu e-mail">
+          <button type="submit">Inscrever</button>
+        </form>
+        <p style="font-size:.72rem;color:var(--stone);margin-top:10px;">Ao se inscrever, você concorda com nossa política de privacidade.</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 AM Store. Todos os direitos reservados.</span>
+      <span>Site desenvolvido por <a href="#">LucasDev</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var header=document.getElementById('siteHeader');
+  function onScroll(){header.classList.toggle('is-scrolled',window.scrollY>12);}
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var toggle=document.getElementById('mobileToggle'),closeBtn=document.getElementById('mobileClose'),menu=document.getElementById('mobileMenu'),scrim=document.getElementById('scrim');
+  function openMenu(){menu.classList.add('is-open');scrim.classList.add('is-open');toggle.setAttribute('aria-expanded','true');}
+  function closeMenu(){menu.classList.remove('is-open');scrim.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
+  toggle.addEventListener('click',openMenu);closeBtn.addEventListener('click',closeMenu);scrim.addEventListener('click',closeMenu);
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+  var cartCountEl=document.getElementById('cartCount'),cartCount=0;
+  document.querySelectorAll('.add-to-cart').forEach(function(btn){
+    var orig=btn.innerHTML;
+    btn.addEventListener('click',function(){
+      cartCount++;cartCountEl.textContent=cartCount;
+      btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Adicionado';
+      btn.disabled=true;
+      setTimeout(function(){btn.innerHTML=orig;btn.disabled=false;},1600);
+    });
+  });
+  document.querySelectorAll('.wishlist-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.classList.toggle('is-active');
+      btn.classList.add('pulse');
+      setTimeout(function(){btn.classList.remove('pulse');},350);
+    });
+  });
+  document.querySelectorAll('.filter-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+    });
+  });
+  var revealEls=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){io.observe(el);});
+  }else{revealEls.forEach(function(el){el.classList.add('is-visible');});}
+})();
+</script>
+</body>
+</html>
