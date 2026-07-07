@@ -1,789 +1,561 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Camisetas — AM Store</title>
 <meta name="description" content="Camisetas masculinas premium — AM Store">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--onyx:#0b0b0a;--onyx-2:#131210;--onyx-3:#1c1a17;--line:#2c2924;--gold:#c6a15b;--gold-bright:#e9c877;--gold-deep:#7c5e2e;--ivory:#f4f1ea;--stone:#9c968a;--radius-sm:10px;--radius:14px;--radius-lg:16px;--font-display:'Bebas Neue',sans-serif;--font-head:'Montserrat',sans-serif;--font-body:'Inter',sans-serif;--ease:cubic-bezier(.22,.61,.36,1);--container:1240px;}
-*,*::before,*::after{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{margin:0;background:var(--onyx);color:var(--ivory);font-family:var(--font-body);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-img{display:block;max-width:100%;}
-a{color:inherit;text-decoration:none;}
-ul{list-style:none;margin:0;padding:0;}
-button{font-family:inherit;cursor:pointer;}
-h1,h2,h3,p{margin:0;}
+:root{--onyx:#0b0b0a;--onyx-2:#131210;--onyx-3:#1c1a17;--line:#2c2924;--gold:#c6a15b;--gold-b:#e9c877;--ivory:#f4f1ea;--stone:#9c968a;--r:14px;--rs:10px;--fD:'Bebas Neue',sans-serif;--fH:'Montserrat',sans-serif;--fB:'Inter',sans-serif;--ease:cubic-bezier(.22,.61,.36,1);}
+*,*::before,*::after{box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{margin:0;background:var(--onyx);color:var(--ivory);font-family:var(--fB);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{display:block;max-width:100%;}a{color:inherit;text-decoration:none;}
+ul{list-style:none;margin:0;padding:0;}button{font-family:inherit;cursor:pointer;}h1,h2,h3,p{margin:0;}
 ::selection{background:var(--gold);color:var(--onyx);}
-:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px;}
-.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:24px;}
-@media(min-width:768px){.container{padding-inline:40px;}}
-.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:.75rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
-.section{padding:100px 0;position:relative;}
-.section--alt{background:var(--onyx-2);}
-@media(max-width:768px){.section{padding:64px 0;}}
-.section__head{max-width:640px;margin-bottom:56px;}
-.section__head.center{max-width:640px;margin-inline:auto;text-align:center;}
-.section__head.center .eyebrow{justify-content:center;}
-.section__head.center .eyebrow::before{display:none;}
-.section__title{font-family:var(--font-head);font-weight:800;font-size:clamp(1.9rem,3.4vw,2.7rem);letter-spacing:-.01em;color:var(--ivory);}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 34px;font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border-radius:var(--radius-sm);border:1px solid transparent;transition:all .35s var(--ease);white-space:nowrap;}
-.btn--primary{background:var(--onyx);border-color:var(--gold);color:var(--gold-bright);}
-.btn--primary:hover{background:var(--gold);color:var(--onyx);box-shadow:0 0 0 1px var(--gold),0 8px 30px -6px rgba(198,161,91,.55);transform:translateY(-2px);}
-.btn--ghost{background:transparent;border-color:var(--line);color:var(--ivory);}
-.btn--ghost:hover{border-color:var(--gold);color:var(--gold-bright);}
-.btn--sm{padding:11px 22px;font-size:.72rem;}
-.icon{width:19px;height:19px;flex-shrink:0;}
-.icon-sm{width:15px;height:15px;}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 24px;}
+@media(min-width:768px){.wrap{padding:0 40px;}}
+
+/* topbar */
 .topbar{background:#000;border-bottom:1px solid var(--line);font-size:.72rem;letter-spacing:.06em;color:var(--stone);}
 .topbar__row{display:flex;align-items:center;justify-content:center;gap:28px;padding:9px 24px;text-align:center;flex-wrap:wrap;}
-.topbar__row span:nth-child(2),.topbar__row span:nth-child(3){display:none;}
-@media(min-width:640px){.topbar__row{justify-content:space-between;}.topbar__row span:nth-child(2),.topbar__row span:nth-child(3){display:inline;}}
-.topbar__row a:hover{color:var(--gold-bright);}
+.topbar__row a:hover{color:var(--gold-b);}
 .topbar__links{display:flex;gap:20px;}
-.header{position:sticky;top:0;z-index:100;background:transparent;border-bottom:1px solid transparent;transition:background .4s var(--ease),border-color .4s var(--ease),backdrop-filter .4s var(--ease);}
-.header.is-scrolled{background:rgba(11,11,10,.78);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--line);}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;}
-.nav__links{display:none;gap:34px;font-size:.78rem;font-weight:600;letter-spacing:.12em;}
-.nav__links a{position:relative;padding-bottom:6px;}
-.nav__links a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);}
+@media(min-width:640px){.topbar__row{justify-content:space-between;}}
+
+/* header */
+.header{position:sticky;top:0;z-index:100;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent;}
+.header.scrolled{background:rgba(11,11,10,.82);backdrop-filter:blur(14px);border-color:var(--line);}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+.nav__links{display:none;gap:32px;font-size:.78rem;font-weight:600;letter-spacing:.12em;}
+.nav__links a{position:relative;padding-bottom:5px;}
+.nav__links a::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
 .nav__links a:hover::after{transform:scaleX(1);}
-.nav__links a:hover{color:var(--gold-bright);}
-.nav__logo{font-family:var(--font-head);font-weight:800;font-size:1.35rem;letter-spacing:.14em;position:relative;padding-bottom:4px;}
+.nav__links a:hover{color:var(--gold-b);}
+.nav__logo{font-family:var(--fH);font-weight:800;font-size:1.35rem;letter-spacing:.14em;}
 .nav__logo span{color:var(--gold);}
-.nav__actions{display:flex;align-items:center;gap:6px;}
-.icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:transparent;border:none;color:var(--ivory);border-radius:50%;transition:color .25s,background .25s;}
-.icon-btn:hover{color:var(--gold-bright);background:rgba(198,161,91,.08);}
-.icon-btn .badge{position:absolute;top:1px;right:1px;width:15px;height:15px;background:var(--gold);color:var(--onyx);font-size:.6rem;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease);}
-.icon-btn.hidden-mobile{display:none;}
-@media(min-width:640px){.icon-btn.hidden-mobile{display:inline-flex;}}
-.mobile-toggle{background:none;border:none;color:var(--ivory);width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;}
-@media(min-width:960px){.nav__links{display:flex;}.mobile-toggle{display:none;}}
-.mobile-menu{position:fixed;inset:0 0 0 auto;width:min(320px,84vw);height:100vh;background:var(--onyx-2);border-left:1px solid var(--line);z-index:200;padding:28px 26px;transform:translateX(100%);transition:transform .4s var(--ease);display:flex;flex-direction:column;gap:28px;}
-.mobile-menu.is-open{transform:translateX(0);}
-.mobile-menu__top{display:flex;justify-content:space-between;align-items:center;}
-.mobile-menu__links{display:flex;flex-direction:column;gap:22px;font-size:1rem;font-weight:600;letter-spacing:.06em;}
-.mobile-menu__links a{display:flex;justify-content:space-between;align-items:center;color:var(--ivory);}
-.mobile-menu__links a:hover{color:var(--gold-bright);}
-.scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:190;opacity:0;visibility:hidden;transition:opacity .35s;}
-.scrim.is-open{opacity:1;visibility:visible;}
-.cat-hero{padding:80px 0 60px;border-bottom:1px solid var(--line);}
-.cat-hero__eyebrow{display:flex;align-items:center;gap:12px;font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
-.cat-hero__eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
-.cat-hero__title{font-family:var(--font-head);font-weight:800;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.01em;text-transform:uppercase;margin-bottom:12px;}
-.cat-hero__sub{color:var(--stone);font-size:1rem;max-width:520px;}
-.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:48px;}
-.filter-btn{padding:9px 22px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--stone);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .25s var(--ease);}
-.filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold-bright);background:rgba(198,161,91,.07);}
-.products-grid{display:grid;grid-template-columns:1fr;gap:28px 24px;}
-@media(min-width:640px){.products-grid{grid-template-columns:repeat(2,1fr);}}
-@media(min-width:1000px){.products-grid{grid-template-columns:repeat(3,1fr);}}
-@media(min-width:1280px){.products-grid{grid-template-columns:repeat(4,1fr);}}
-.product-card{position:relative;}
-.product-card__media{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;background:var(--onyx-3);border:1px solid var(--line);transition:border-color .4s,box-shadow .4s;}
-.product-card:hover .product-card__media{border-color:var(--gold);box-shadow:0 14px 40px -14px rgba(198,161,91,.35);}
-.product-card__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
-.product-card:hover .product-card__img{transform:scale(1.06);}
-.badge-tag{position:absolute;top:14px;left:14px;z-index:2;padding:5px 12px;border-radius:999px;font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
-.badge-tag--new{background:var(--gold);color:var(--onyx);}
-.badge-tag--sale{background:#c0392b;color:#fff;}
-.wishlist-btn{position:absolute;top:14px;right:14px;z-index:2;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(11,11,10,.55);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:50%;color:var(--ivory);transition:color .25s,border-color .25s,transform .25s;}
-.wishlist-btn:hover{border-color:var(--gold);}
-.wishlist-btn.is-active{color:var(--gold-bright);border-color:var(--gold);}
-.wishlist-btn.is-active svg{fill:var(--gold-bright);}
-.wishlist-btn.pulse{animation:pulse .35s var(--ease);}
-@keyframes pulse{50%{transform:scale(1.22);}}
-.product-card__overlay{position:absolute;left:14px;right:14px;bottom:14px;z-index:2;transform:translateY(14px);opacity:0;transition:transform .4s var(--ease),opacity .4s var(--ease);}
-.product-card:hover .product-card__overlay,.product-card:focus-within .product-card__overlay{transform:translateY(0);opacity:1;}
-@media(hover:none){.product-card__overlay{position:static;transform:none;opacity:1;margin-top:12px;}}
-.add-to-cart{width:100%;padding:12px 16px;border-radius:999px;background:var(--gold);color:var(--onyx);border:none;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .25s,transform .2s;}
-.add-to-cart:hover{background:var(--gold-bright);}
-.add-to-cart:active{transform:scale(.97);}
-.product-card__body{padding-top:16px;}
-.product-card__name{font-family:var(--font-head);font-weight:600;font-size:1rem;margin-bottom:4px;}
-.product-card__desc{font-size:.82rem;color:var(--stone);margin-bottom:10px;}
-.product-card__footer{display:flex;align-items:center;justify-content:space-between;gap:8px;}
-.product-card__price{font-family:var(--font-head);font-weight:700;color:var(--gold-bright);font-size:1.05rem;}
-.product-card__old-price{font-size:.82rem;color:var(--stone);text-decoration:line-through;}
-.pagination{display:flex;justify-content:center;gap:8px;margin-top:64px;}
-.pagination a{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--radius-sm);font-size:.82rem;font-weight:600;transition:all .25s;}
-.pagination a:hover,.pagination a.active{border-color:var(--gold);color:var(--gold-bright);}
-.footer{background:#000;border-top:1px dashed var(--line);position:relative;padding-top:80px;}
-.footer::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:140px;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 8px,transparent 8px 14px);}
-.footer__grid{display:grid;grid-template-columns:1fr;gap:44px;padding-bottom:56px;border-bottom:1px solid var(--line);}
-@media(min-width:768px){.footer__grid{grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:32px;}}
-.footer__logo{font-family:var(--font-head);font-weight:800;font-size:1.3rem;letter-spacing:.14em;margin-bottom:14px;}
+.nav__actions{display:flex;align-items:center;gap:4px;}
+.icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:none;border:none;color:var(--ivory);border-radius:50%;transition:color .2s,background .2s;}
+.icon-btn:hover{color:var(--gold-b);background:rgba(198,161,91,.08);}
+.badge{position:absolute;top:2px;right:2px;width:15px;height:15px;background:var(--gold);color:var(--onyx);font-size:.58rem;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.icon-btn.hm{display:none;}@media(min-width:640px){.icon-btn.hm{display:inline-flex;}}
+.menu-btn{background:none;border:none;color:var(--ivory);width:40px;height:40px;display:flex;align-items:center;justify-content:center;}
+@media(min-width:960px){.nav__links{display:flex;}.menu-btn{display:none;}}
+
+/* mobile menu */
+.mob-menu{position:fixed;inset:0 0 0 auto;width:min(320px,84vw);height:100vh;background:var(--onyx-2);border-left:1px solid var(--line);z-index:200;padding:26px;transform:translateX(100%);transition:transform .4s var(--ease);display:flex;flex-direction:column;gap:26px;}
+.mob-menu.open{transform:translateX(0);}
+.mob-menu__top{display:flex;justify-content:space-between;align-items:center;}
+.mob-menu__links{display:flex;flex-direction:column;gap:20px;font-size:.98rem;font-weight:600;letter-spacing:.04em;}
+.mob-menu__links a{display:flex;justify-content:space-between;align-items:center;}
+.mob-menu__links a:hover{color:var(--gold-b);}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:190;display:none;}
+.overlay.open{display:block;}
+
+/* cat hero */
+.cat-hero{padding:72px 0 52px;border-bottom:1px solid var(--line);}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.eyebrow::before{content:'';width:26px;height:1px;background:var(--gold);display:block;}
+.cat-title{font-family:var(--fH);font-weight:800;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.01em;text-transform:uppercase;margin-bottom:10px;}
+.cat-sub{color:var(--stone);font-size:.98rem;max-width:500px;}
+
+/* filters */
+.section{padding:72px 0;}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
+.fbtn{padding:9px 22px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--stone);font-size:.73rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .22s;}
+.fbtn:hover,.fbtn.on{border-color:var(--gold);color:var(--gold-b);background:rgba(198,161,91,.07);}
+
+/* product grid */
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 16px;}
+@media(min-width:760px){.pgrid{grid-template-columns:repeat(3,1fr);gap:24px 20px;}}
+@media(min-width:1100px){.pgrid{grid-template-columns:repeat(4,1fr);}}
+.pcard{position:relative;}
+.pcard__media{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--onyx-3);border:1px solid var(--line);transition:border-color .35s,box-shadow .35s;}
+.pcard:hover .pcard__media{border-color:var(--gold);box-shadow:0 12px 36px -12px rgba(198,161,91,.32);}
+.pcard__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.pcard:hover .pcard__img{transform:scale(1.05);}
+.ptag{position:absolute;top:12px;left:12px;z-index:2;padding:4px 11px;border-radius:999px;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.ptag-new{background:var(--gold);color:var(--onyx);}
+.ptag-sale{background:#c0392b;color:#fff;}
+.wbtn{position:absolute;top:12px;right:12px;z-index:2;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(11,11,10,.5);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:50%;color:var(--ivory);transition:border-color .2s;}
+.wbtn:hover{border-color:var(--gold);}
+.wbtn.on{color:var(--gold-b);border-color:var(--gold);}
+.wbtn.on svg{fill:var(--gold-b);}
+.pcard__cta{position:absolute;left:12px;right:12px;bottom:12px;z-index:2;transform:translateY(12px);opacity:0;transition:transform .35s var(--ease),opacity .35s;}
+.pcard:hover .pcard__cta,.pcard:focus-within .pcard__cta{transform:translateY(0);opacity:1;}
+@media(hover:none){.pcard__cta{position:static;transform:none;opacity:1;margin-top:10px;}}
+.add-btn{width:100%;padding:11px;border-radius:999px;background:var(--gold);color:var(--onyx);border:none;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:7px;transition:background .2s;}
+.add-btn:hover{background:var(--gold-b);}
+.pcard__body{padding-top:14px;}
+.pcard__name{font-family:var(--fH);font-weight:600;font-size:.95rem;margin-bottom:3px;}
+.pcard__desc{font-size:.8rem;color:var(--stone);margin-bottom:8px;}
+.pcard__foot{display:flex;align-items:center;gap:10px;}
+.pcard__price{font-family:var(--fH);font-weight:700;color:var(--gold-b);font-size:1.02rem;}
+.pcard__old{font-size:.78rem;color:var(--stone);text-decoration:line-through;}
+
+/* pagination */
+.pagination{display:flex;justify-content:center;gap:8px;margin-top:56px;}
+.pagination a{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--rs);font-size:.82rem;font-weight:600;transition:all .2s;}
+.pagination a:hover,.pagination a.on{border-color:var(--gold);color:var(--gold-b);}
+
+/* ── CART DRAWER ─────────────────────────────────────── */
+.cscrim{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:290;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s,visibility .35s;}
+.cscrim.open{opacity:1;visibility:visible;pointer-events:auto;}
+.cdrawer{position:fixed;top:0;right:0;bottom:0;width:min(380px,94vw);background:#131210;border-left:1px solid #2c2924;z-index:300;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s var(--ease);}
+.cdrawer.open{transform:translateX(0);}
+.cdrawer__hd{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid #2c2924;flex-shrink:0;}
+.cdrawer__hd h3{font-family:var(--fH);font-weight:700;font-size:1rem;letter-spacing:.1em;margin:0;}
+.cdrawer__x{background:none;border:none;color:#f4f1ea;font-size:1.6rem;cursor:pointer;line-height:1;padding:2px 8px;opacity:.6;}
+.cdrawer__x:hover{opacity:1;}
+.cdrawer__body{flex:1;overflow-y:auto;padding:10px 22px;}
+.cempty{color:#9c968a;font-size:.88rem;text-align:center;padding:44px 0;}
+.citem{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #2c2924;}
+.citem img{width:66px;height:82px;object-fit:cover;border-radius:8px;flex-shrink:0;border:1px solid #2c2924;}
+.citem__info{flex:1;min-width:0;}
+.citem__name{font-family:var(--fH);font-weight:600;font-size:.85rem;margin-bottom:3px;line-height:1.3;}
+.citem__price{color:#e9c877;font-weight:700;font-size:.85rem;margin-bottom:8px;}
+.citem__qty{display:flex;align-items:center;gap:8px;}
+.citem__qty button{width:26px;height:26px;border-radius:50%;border:1px solid #2c2924;background:transparent;color:#f4f1ea;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.citem__qty button:hover{border-color:#c6a15b;}
+.citem__qty span{font-size:.85rem;font-weight:600;min-width:18px;text-align:center;}
+.citem__del{align-self:center;background:none;border:none;color:#9c968a;font-size:1.3rem;cursor:pointer;padding:2px 6px;line-height:1;}
+.citem__del:hover{color:#f4f1ea;}
+.cdrawer__ft{padding:18px 22px 24px;border-top:1px solid #2c2924;flex-shrink:0;}
+.ctotal{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.ctotal__lbl{font-family:var(--fH);font-weight:600;font-size:.82rem;letter-spacing:.08em;}
+.ctotal__val{font-family:var(--fH);font-weight:700;color:#e9c877;font-size:1.12rem;}
+.cbuy{display:flex;align-items:center;justify-content:center;width:100%;padding:14px;border-radius:10px;background:#0b0b0a;border:1px solid #c6a15b;color:#e9c877;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;margin-bottom:8px;transition:all .25s;}
+.cbuy:hover{background:#c6a15b;color:#0b0b0a;}
+.ckeep{display:flex;align-items:center;justify-content:center;width:100%;padding:12px;border-radius:10px;background:transparent;border:1px solid #2c2924;color:#f4f1ea;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .25s;}
+.ckeep:hover{border-color:#c6a15b;color:#e9c877;}
+
+/* footer */
+.footer{background:#000;border-top:1px dashed var(--line);padding-top:72px;position:relative;}
+.footer::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:120px;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 8px,transparent 8px 14px);}
+.footer__g{display:grid;grid-template-columns:1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--line);}
+@media(min-width:768px){.footer__g{grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:28px;}}
+.footer__logo{font-family:var(--fH);font-weight:800;font-size:1.25rem;letter-spacing:.14em;margin-bottom:12px;}
 .footer__logo span{color:var(--gold);}
-.footer__tagline{color:var(--stone);font-size:.88rem;max-width:280px;margin-bottom:22px;}
-.footer__social{display:flex;gap:10px;}
-.footer__social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:border-color .25s,color .25s;}
-.footer__social a:hover{border-color:var(--gold);color:var(--gold-bright);}
-.footer__title{font-family:var(--font-head);font-weight:700;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:20px;}
-.footer__links{display:flex;flex-direction:column;gap:12px;}
-.footer__links a{font-size:.88rem;color:var(--stone);transition:color .25s;}
-.footer__links a:hover{color:var(--ivory);}
-.footer__form{display:flex;gap:0;margin-top:18px;border:1px solid var(--line);border-radius:999px;overflow:hidden;padding:4px;}
-.footer__form input{flex:1;min-width:0;background:transparent;border:none;color:var(--ivory);padding:10px 16px;font-family:inherit;font-size:.85rem;}
+.footer__tag{color:var(--stone);font-size:.86rem;max-width:260px;margin-bottom:20px;}
+.footer__soc{display:flex;gap:9px;}
+.footer__soc a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s;}
+.footer__soc a:hover{border-color:var(--gold);color:var(--gold-b);}
+.footer__ttl{font-family:var(--fH);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-b);margin-bottom:18px;}
+.footer__lnks{display:flex;flex-direction:column;gap:11px;}
+.footer__lnks a{font-size:.86rem;color:var(--stone);transition:color .2s;}
+.footer__lnks a:hover{color:var(--ivory);}
+.footer__form{display:flex;margin-top:16px;border:1px solid var(--line);border-radius:999px;overflow:hidden;padding:3px;}
+.footer__form input{flex:1;min-width:0;background:transparent;border:none;color:var(--ivory);padding:9px 14px;font-family:inherit;font-size:.83rem;}
 .footer__form input:focus{outline:none;}
 .footer__form input::placeholder{color:var(--stone);}
-.footer__form button{background:var(--gold);color:var(--onyx);border:none;padding:10px 20px;border-radius:999px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .25s;}
-.footer__form button:hover{background:var(--gold-bright);}
-.footer__bottom{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:space-between;padding:26px 0 32px;font-size:.75rem;color:var(--stone);text-align:center;}
-@media(min-width:640px){.footer__bottom{flex-direction:row;text-align:left;}}
-.footer__bottom a:hover{color:var(--gold-bright);}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
-.reveal.is-visible{opacity:1;transform:translateY(0);}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation-duration:.01ms !important;transition-duration:.01ms !important;}.reveal{opacity:1;transform:none;}}
-
-/* ── CART DRAWER ── */
-#cartScrim2{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:290;opacity:0;visibility:hidden;transition:opacity .35s;}
-#cartScrim2.is-open{opacity:1;visibility:visible;}
-.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,95vw);background:var(--onyx-2);border-left:1px solid var(--line);z-index:300;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .42s cubic-bezier(.22,.61,.36,1);}
-.cart-drawer.is-open{transform:translateX(0);}
-.cart-drawer__header{display:flex;justify-content:space-between;align-items:center;padding:22px 24px 18px;border-bottom:1px solid var(--line);flex-shrink:0;}
-.cart-drawer__header h3{font-family:var(--font-head);font-weight:700;font-size:1.05rem;letter-spacing:.06em;margin:0;}
-.cart-drawer__header button{background:none;border:none;color:var(--ivory);font-size:1.6rem;cursor:pointer;line-height:1;padding:4px;opacity:.7;transition:opacity .2s;}
-.cart-drawer__header button:hover{opacity:1;}
-.cart-drawer__items{flex:1;overflow-y:auto;padding:12px 24px;}
-.cart-empty{color:var(--stone);font-size:.9rem;text-align:center;padding:48px 0;}
-.cart-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);}
-.cart-item img{width:72px;height:90px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;border:1px solid var(--line);}
-.cart-item__info{flex:1;min-width:0;}
-.cart-item__name{font-family:var(--font-head);font-weight:600;font-size:.88rem;margin-bottom:4px;line-height:1.3;}
-.cart-item__price{color:var(--gold-bright);font-weight:700;font-size:.88rem;margin-bottom:10px;}
-.cart-item__qty{display:flex;align-items:center;gap:10px;}
-.cart-item__qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ivory);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s;}
-.cart-item__qty button:hover{border-color:var(--gold);color:var(--gold-bright);}
-.cart-item__qty span{font-size:.88rem;font-weight:600;min-width:20px;text-align:center;}
-.cart-item__remove{align-self:center;background:none;border:none;color:var(--stone);font-size:1.3rem;cursor:pointer;padding:4px;transition:color .2s;line-height:1;}
-.cart-item__remove:hover{color:var(--ivory);}
-.cart-drawer__footer{padding:20px 24px 28px;border-top:1px solid var(--line);flex-shrink:0;}
-.cart-drawer__total{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
-.cart-drawer__total .label{font-family:var(--font-head);font-weight:600;font-size:.88rem;letter-spacing:.06em;}
-.cart-drawer__total .value{font-family:var(--font-head);font-weight:700;color:var(--gold-bright);font-size:1.15rem;}
-.btn--block{width:100%;}
-
-/* ── VISIBILITY FIX: show products immediately ── */
-.reveal,.product-card.reveal,.filters.reveal,.pagination.reveal{opacity:1;transform:none;}
-/* ── CART DRAWER ── */
-#cartScrim2{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:290;opacity:0;visibility:hidden;transition:opacity .35s;}
-#cartScrim2.is-open{opacity:1;visibility:visible;}
-.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,95vw);background:#131210;border-left:1px solid #2c2924;z-index:300;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .42s cubic-bezier(.22,.61,.36,1);}
-.cart-drawer.is-open{transform:translateX(0);}
-.cart-drawer__header{display:flex;justify-content:space-between;align-items:center;padding:22px 24px 18px;border-bottom:1px solid #2c2924;flex-shrink:0;}
-.cart-drawer__header h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:.06em;margin:0;color:#f4f1ea;}
-.cart-drawer__close-btn{background:none;border:none;color:#f4f1ea;font-size:1.6rem;cursor:pointer;line-height:1;padding:4px 8px;opacity:.7;}
-.cart-drawer__close-btn:hover{opacity:1;}
-.cart-drawer__items{flex:1;overflow-y:auto;padding:12px 24px;}
-.cart-empty{color:#9c968a;font-size:.9rem;text-align:center;padding:48px 0;}
-.cart-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid #2c2924;}
-.cart-item img{width:72px;height:90px;object-fit:cover;border-radius:10px;flex-shrink:0;border:1px solid #2c2924;}
-.cart-item__info{flex:1;min-width:0;}
-.cart-item__name{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.88rem;margin-bottom:4px;color:#f4f1ea;line-height:1.3;}
-.cart-item__price{color:#e9c877;font-weight:700;font-size:.88rem;margin-bottom:10px;}
-.cart-item__qty{display:flex;align-items:center;gap:10px;}
-.cart-item__qty button{width:28px;height:28px;border-radius:50%;border:1px solid #2c2924;background:transparent;color:#f4f1ea;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s;}
-.cart-item__qty button:hover{border-color:#c6a15b;}
-.cart-item__qty span{font-size:.88rem;font-weight:600;min-width:20px;text-align:center;color:#f4f1ea;}
-.cart-item__remove{background:none;border:none;color:#9c968a;font-size:1.4rem;cursor:pointer;padding:4px;align-self:center;line-height:1;transition:color .2s;}
-.cart-item__remove:hover{color:#f4f1ea;}
-.cart-drawer__footer{padding:20px 24px 28px;border-top:1px solid #2c2924;flex-shrink:0;}
-.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
-.cart-total-label{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.08em;color:#f4f1ea;}
-.cart-total-value{font-family:'Montserrat',sans-serif;font-weight:700;color:#e9c877;font-size:1.15rem;}
-.btn-cart-checkout{display:flex;align-items:center;justify-content:center;width:100%;padding:15px;border-radius:10px;background:#0b0b0a;border:1px solid #c6a15b;color:#e9c877;font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:all .3s;margin-bottom:10px;}
-.btn-cart-checkout:hover{background:#c6a15b;color:#0b0b0a;}
-.btn-cart-continue{display:flex;align-items:center;justify-content:center;width:100%;padding:13px;border-radius:10px;background:transparent;border:1px solid #2c2924;color:#f4f1ea;font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .3s;}
-.btn-cart-continue:hover{border-color:#c6a15b;color:#e9c877;}
+.footer__form button{background:var(--gold);color:var(--onyx);border:none;padding:9px 18px;border-radius:999px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.footer__form button:hover{background:var(--gold-b);}
+.footer__bot{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:space-between;padding:22px 0 28px;font-size:.73rem;color:var(--stone);text-align:center;}
+@media(min-width:640px){.footer__bot{flex-direction:row;}}
+.footer__bot a:hover{color:var(--gold-b);}
 </style>
 </head>
 <body>
-<div class="topbar">
-  <div class="topbar__row">
-    <span>FRETE GRÁTIS ACIMA DE R$ 399</span>
-    <span>|</span>
-    <span class="topbar__links">
-      <a href="index.html">HOME</a>
-      <a href="#">RASTREAR PEDIDO</a>
-      <a href="#">AJUDA</a>
-    </span>
-  </div>
-</div>
-<header class="header" id="siteHeader">
-  <div class="container">
-    <nav class="nav">
-      <ul class="nav__links">
-        <li><a href="camisetas.html">CAMISETAS</a></li>
-        <li><a href="camisas.html">CAMISAS</a></li>
-        <li><a href="calcas.html">CALÇAS</a></li>
-      </ul>
-      <a href="index.html" class="nav__logo">AM<span>·</span>STORE</a>
-      <ul class="nav__links">
-        <li><a href="tenis.html">TÊNIS</a></li>
-        <li><a href="acessorios.html">ACESSÓRIOS</a></li>
-      </ul>
-      <div class="nav__actions">
-        <button class="icon-btn hidden-mobile" aria-label="Buscar">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-        <button class="icon-btn hidden-mobile" aria-label="Entrar na conta">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg>
-        </button>
-        <button class="icon-btn" id="cartHeaderBtn" aria-label="Carrinho de compras">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-          <span class="badge" id="cartCount">0</span>
-        </button>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menu" aria-expanded="false">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-      </div>
-    </nav>
-  </div>
-</header>
-<div class="scrim" id="scrim"></div>
-<aside class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu__top">
-    <span class="nav__logo">AM<span>·</span>STORE</span>
-    <button class="icon-btn" id="mobileClose" aria-label="Fechar menu">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
-    </button>
-  </div>
-  <ul class="mobile-menu__links">
-    <li><a href="index.html">Home <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
-    <li><a href="camisetas.html">Camisetas <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
-    <li><a href="camisas.html">Camisas <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
-    <li><a href="calcas.html">Calças <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
-    <li><a href="tenis.html">Tênis <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
-    <li><a href="acessorios.html">Acessórios <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a></li>
+<div class="topbar"><div class="wrap"><div class="topbar__row"><span>FRETE GRÁTIS ACIMA DE R$&nbsp;399</span><span class="topbar__links"><a href="index.html">HOME</a><a href="#">RASTREAR PEDIDO</a><a href="#">AJUDA</a></span></div></div></div>
+<header class="header" id="hdr">
+<div class="wrap"><nav class="nav">
+  <ul class="nav__links">
+    <li><a href="camisetas.html">CAMISETAS</a></li>
+    <li><a href="camisas.html">CAMISAS</a></li>
+    <li><a href="calcas.html">CALÇAS</a></li>
   </ul>
-</aside>
-<section class="cat-hero">
-  <div class="container">
-    <nav style="font-size:.72rem;color:var(--stone);margin-bottom:24px;letter-spacing:.06em;">
-      <a href="index.html" style="color:var(--stone);">HOME</a>
-      <span style="margin:0 10px;color:var(--line);">/</span>
-      <span style="color:var(--gold);">CAMISETAS</span>
-    </nav>
-    <p class="cat-hero__eyebrow">COLEÇÃO 2026</p>
-    <h1 class="cat-hero__title">Camisetas</h1>
-    <p class="cat-hero__sub">Conforto premium para o dia a dia — tecidos selecionados, caimentos impecáveis.</p>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <div class="filters reveal">
-      <button class="filter-btn active" data-filter="todos">Todos</button>
-       <button class="filter-btn" data-filter="básicas">Básicas</button>
-       <button class="filter-btn" data-filter="estampadas">Estampadas</button>
-       <button class="filter-btn" data-filter="oversize">Oversize</button>
-       <button class="filter-btn" data-filter="polo">Polo</button>
-       <button class="filter-btn" data-filter="linho">Linho</button>
-    </div>
-    <div class="products-grid">
-<article class="product-card reveal" data-filter="básicas">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1571455786673-9d9d6c194f90?auto=format&fit=crop&w=600&q=80" alt="Camiseta Essential Black" loading="lazy">
-    <span class="badge-tag badge-tag--new">NOVO</span>
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Essential Black">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+  <a href="index.html" class="nav__logo">AM<span>·</span>STORE</a>
+  <ul class="nav__links">
+    <li><a href="tenis.html">TÊNIS</a></li>
+    <li><a href="acessorios.html">ACESSÓRIOS</a></li>
+  </ul>
+  <div class="nav__actions">
+    <button class="icon-btn hm" aria-label="Buscar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <button class="icon-btn hm" aria-label="Conta"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg></button>
+    <button class="icon-btn" id="cartBtn" aria-label="Carrinho">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+      <span class="badge" id="cartBadge">0</span>
     </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Essential Black">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</nav></div></header>
+<div class="overlay" id="overlay"></div>
+<nav class="mob-menu" id="mobMenu">
+  <div class="mob-menu__top">
+    <span class="nav__logo">AM<span>·</span>STORE</span>
+    <button class="icon-btn" id="menuClose"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></button>
+  </div>
+  <div class="mob-menu__links">
+    <a href="index.html">Home <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a>
+    <a href="camisetas.html">Camisetas <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a>
+    <a href="camisas.html">Camisas <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a>
+    <a href="calcas.html">Calças <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a>
+    <a href="tenis.html">Tênis <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a>
+    <a href="acessorios.html">Acessórios <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="14 6 20 12 14 18"/></svg></a>
+  </div>
+</nav>
+<section class="cat-hero"><div class="wrap">
+  <nav style="font-size:.7rem;color:var(--stone);margin-bottom:20px;letter-spacing:.06em;">
+    <a href="index.html" style="color:var(--stone)">HOME</a>
+    <span style="margin:0 9px;color:var(--line)">/</span>
+    <span style="color:var(--gold)">CAMISETAS</span>
+  </nav>
+  <p class="eyebrow">COLEÇÃO 2026</p>
+  <h1 class="cat-title">Camisetas</h1>
+  <p class="cat-sub">Conforto premium para o dia a dia — tecidos selecionados, caimentos impecáveis.</p>
+</div></section>
+<section class="section"><div class="wrap">
+  <div class="filters"><button class="fbtn on" data-f="all">Todos</button><button class="fbtn" data-f="básicas">Básicas</button><button class="fbtn" data-f="estampadas">Estampadas</button><button class="fbtn" data-f="oversize">Oversize</button><button class="fbtn" data-f="polo">Polo</button><button class="fbtn" data-f="linho">Linho</button></div>
+  <div class="pgrid"><article class="pcard" data-f="básicas">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1571455786673-9d9d6c194f90?auto=format&fit=crop&w=600&q=80" alt="Camiseta Essential Black" loading="lazy">
+    <span class="ptag ptag-new">NOVO</span>
+    <button class="wbtn" aria-label="Favoritar Camiseta Essential Black"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Essential Black">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Essential Black</div>
-    <div class="product-card__desc">100% algodão premium, corte regular</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 149,90</div>
-      
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Essential Black</div>
+    <div class="pcard__desc">100% algodão premium, corte regular</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 149,90</span></div>
   </div>
-</article>
-<article class="product-card reveal reveal-delay-1" data-filter="estampadas">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80" alt="Camiseta Graphic Urban" loading="lazy">
+</article><article class="pcard" data-f="estampadas">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80" alt="Camiseta Graphic Urban" loading="lazy">
     
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Graphic Urban">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Graphic Urban">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <button class="wbtn" aria-label="Favoritar Camiseta Graphic Urban"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Graphic Urban">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Graphic Urban</div>
-    <div class="product-card__desc">Estampa exclusiva serigrafia</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 169,90</div>
-      
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Graphic Urban</div>
+    <div class="pcard__desc">Estampa exclusiva serigrafia</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 169,90</span></div>
   </div>
-</article>
-<article class="product-card reveal reveal-delay-2" data-filter="oversize">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Camiseta Oversize Street" loading="lazy">
+</article><article class="pcard" data-f="oversize">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Camiseta Oversize Street" loading="lazy">
     
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Oversize Street">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Oversize Street">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <button class="wbtn" aria-label="Favoritar Camiseta Oversize Street"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Oversize Street">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Oversize Street</div>
-    <div class="product-card__desc">Caimento oversized, tecido pesado</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 189,90</div>
-      
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Oversize Street</div>
+    <div class="pcard__desc">Caimento oversized, tecido pesado</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 189,90</span></div>
   </div>
-</article>
-<article class="product-card reveal" data-filter="básicas">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1485462537746-965f33f52f86?auto=format&fit=crop&w=600&q=80" alt="Camiseta Básica Branca" loading="lazy">
-    <span class="badge-tag badge-tag--sale">SALE</span>
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Básica Branca">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Básica Branca">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+</article><article class="pcard" data-f="básicas">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1485462537746-965f33f52f86?auto=format&fit=crop&w=600&q=80" alt="Camiseta Básica Branca" loading="lazy">
+    <span class="ptag ptag-sale">SALE</span>
+    <button class="wbtn" aria-label="Favoritar Camiseta Básica Branca"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Básica Branca">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Básica Branca</div>
-    <div class="product-card__desc">Algodão egípcio 180g</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 129,90</div>
-      <span class="product-card__old-price">R$ 159,90</span>
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Básica Branca</div>
+    <div class="pcard__desc">Algodão egípcio 180g</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 129,90</span><span class="pcard__old">R$ 159,90</span></div>
   </div>
-</article>
-<article class="product-card reveal reveal-delay-1" data-filter="oversize">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&w=600&q=80" alt="Camiseta Longline Preta" loading="lazy">
+</article><article class="pcard" data-f="oversize">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?auto=format&fit=crop&w=600&q=80" alt="Camiseta Longline Preta" loading="lazy">
     
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Longline Preta">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Longline Preta">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <button class="wbtn" aria-label="Favoritar Camiseta Longline Preta"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Longline Preta">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Longline Preta</div>
-    <div class="product-card__desc">Corte alongado, detalhe lateral</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 179,90</div>
-      
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Longline Preta</div>
+    <div class="pcard__desc">Corte alongado, detalhe lateral</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 179,90</span></div>
   </div>
-</article>
-<article class="product-card reveal reveal-delay-2" data-filter="polo">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1594938298603-c8148c4b0abe?auto=format&fit=crop&w=600&q=80" alt="Camiseta Polo Piqué" loading="lazy">
-    <span class="badge-tag badge-tag--new">NOVO</span>
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Polo Piqué">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Polo Piqué">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+</article><article class="pcard" data-f="polo">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1594938298603-c8148c4b0abe?auto=format&fit=crop&w=600&q=80" alt="Camiseta Polo Piqué" loading="lazy">
+    <span class="ptag ptag-new">NOVO</span>
+    <button class="wbtn" aria-label="Favoritar Camiseta Polo Piqué"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Polo Piqué">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Polo Piqué</div>
-    <div class="product-card__desc">Tecido piqué importado, colarinho firme</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 219,90</div>
-      
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Polo Piqué</div>
+    <div class="pcard__desc">Tecido piqué importado, colarinho firme</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 219,90</span></div>
   </div>
-</article>
-<article class="product-card reveal" data-filter="básicas">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1622445275576-721325763afe?auto=format&fit=crop&w=600&q=80" alt="Camiseta Henley Premium" loading="lazy">
+</article><article class="pcard" data-f="básicas">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1622445275576-721325763afe?auto=format&fit=crop&w=600&q=80" alt="Camiseta Henley Premium" loading="lazy">
     
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Henley Premium">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Henley Premium">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <button class="wbtn" aria-label="Favoritar Camiseta Henley Premium"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Henley Premium">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Henley Premium</div>
-    <div class="product-card__desc">3 botões, tecido waffle</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 199,90</div>
-      
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Henley Premium</div>
+    <div class="pcard__desc">3 botões, tecido waffle</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 199,90</span></div>
   </div>
-</article>
-<article class="product-card reveal reveal-delay-1" data-filter="estampadas">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=600&q=80" alt="Camiseta Vintage Wash" loading="lazy">
-    <span class="badge-tag badge-tag--sale">SALE</span>
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Vintage Wash">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Vintage Wash">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+</article><article class="pcard" data-f="estampadas">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=600&q=80" alt="Camiseta Vintage Wash" loading="lazy">
+    <span class="ptag ptag-sale">SALE</span>
+    <button class="wbtn" aria-label="Favoritar Camiseta Vintage Wash"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Vintage Wash">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Vintage Wash</div>
-    <div class="product-card__desc">Lavagem especial vintage</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 159,90</div>
-      <span class="product-card__old-price">R$ 189,90</span>
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Vintage Wash</div>
+    <div class="pcard__desc">Lavagem especial vintage</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 159,90</span><span class="pcard__old">R$ 189,90</span></div>
   </div>
-</article>
-<article class="product-card reveal reveal-delay-2" data-filter="básicas">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?auto=format&fit=crop&w=600&q=80" alt="Camiseta Ribbed Slim" loading="lazy">
+</article><article class="pcard" data-f="básicas">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?auto=format&fit=crop&w=600&q=80" alt="Camiseta Ribbed Slim" loading="lazy">
     
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Ribbed Slim">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Ribbed Slim">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <button class="wbtn" aria-label="Favoritar Camiseta Ribbed Slim"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Ribbed Slim">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Ribbed Slim</div>
-    <div class="product-card__desc">Canelado slim, manga curta</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 144,90</div>
-      
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Ribbed Slim</div>
+    <div class="pcard__desc">Canelado slim, manga curta</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 144,90</span></div>
   </div>
-</article>
-<article class="product-card reveal" data-filter="básicas">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="Camiseta Dry Fit Training" loading="lazy">
-    <span class="badge-tag badge-tag--new">NOVO</span>
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Dry Fit Training">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Dry Fit Training">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+</article><article class="pcard" data-f="básicas">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="Camiseta Dry Fit Training" loading="lazy">
+    <span class="ptag ptag-new">NOVO</span>
+    <button class="wbtn" aria-label="Favoritar Camiseta Dry Fit Training"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Dry Fit Training">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Dry Fit Training</div>
-    <div class="product-card__desc">Tecido dry-fit, anti-odor</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 139,90</div>
-      
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Dry Fit Training</div>
+    <div class="pcard__desc">Tecido dry-fit, anti-odor</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 139,90</span></div>
   </div>
-</article>
-<article class="product-card reveal reveal-delay-1" data-filter="linho">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80" alt="Camiseta Linho Verão" loading="lazy">
+</article><article class="pcard" data-f="linho">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80" alt="Camiseta Linho Verão" loading="lazy">
     
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Linho Verão">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Linho Verão">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <button class="wbtn" aria-label="Favoritar Camiseta Linho Verão"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Linho Verão">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Linho Verão</div>
-    <div class="product-card__desc">Linho natural, respirável</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 229,90</div>
-      
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Linho Verão</div>
+    <div class="pcard__desc">Linho natural, respirável</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 229,90</span></div>
   </div>
-</article>
-<article class="product-card reveal reveal-delay-2" data-filter="básicas">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?auto=format&fit=crop&w=600&q=80" alt="Camiseta Tucked Essential" loading="lazy">
+</article><article class="pcard" data-f="básicas">
+  <div class="pcard__media">
+    <img class="pcard__img" src="https://images.unsplash.com/photo-1556821840-3a63f15732ce?auto=format&fit=crop&w=600&q=80" alt="Camiseta Tucked Essential" loading="lazy">
     
-    <button class="wishlist-btn" aria-label="Favoritar Camiseta Tucked Essential">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Camiseta Tucked Essential">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    <button class="wbtn" aria-label="Favoritar Camiseta Tucked Essential"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg></button>
+    <div class="pcard__cta">
+      <button class="add-btn" data-p="Camiseta Tucked Essential">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
         Adicionar ao carrinho
       </button>
     </div>
   </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Camiseta Tucked Essential</div>
-    <div class="product-card__desc">Corte slim para usar por dentro</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 149,90</div>
-      
-    </div>
+  <div class="pcard__body">
+    <div class="pcard__name">Camiseta Tucked Essential</div>
+    <div class="pcard__desc">Corte slim para usar por dentro</div>
+    <div class="pcard__foot"><span class="pcard__price">R$ 149,90</span></div>
   </div>
-</article>
-    </div>
-    <div class="pagination reveal">
-      <a href="#" class="active">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">→</a>
-    </div>
-  </div>
-</section>
+</article></div>
+  <div class="pagination"><a href="#" class="on">1</a><a href="#">2</a><a href="#">3</a><a href="#">→</a></div>
+</div></section>
 
-
-
-<div id="cartScrim2"></div>
-<aside class="cart-drawer" id="cartDrawer">
-  <div class="cart-drawer__header">
-    <h3>CARRINHO</h3>
-    <button class="cart-drawer__close-btn" id="cartClose">×</button>
-  </div>
-  <div class="cart-drawer__items" id="cartItems">
-    <div class="cart-empty">Seu carrinho está vazio.</div>
-  </div>
-  <div class="cart-drawer__footer">
-    <div class="cart-total-row">
-      <span class="cart-total-label">TOTAL</span>
-      <span class="cart-total-value" id="cartTotal">R$ 0,00</span>
-    </div>
-    <a href="https://wa.me/55" target="_blank" class="btn-cart-checkout">Finalizar via WhatsApp</a>
-    <button class="btn-cart-continue" id="cartContinue">Continuar comprando</button>
+<div class="cscrim" id="cscrim"></div>
+<aside class="cdrawer" id="cdrawer">
+  <div class="cdrawer__hd"><h3>CARRINHO</h3><button class="cdrawer__x" id="cartX">×</button></div>
+  <div class="cdrawer__body" id="cartBody"><div class="cempty">Seu carrinho está vazio.</div></div>
+  <div class="cdrawer__ft">
+    <div class="ctotal"><span class="ctotal__lbl">TOTAL</span><span class="ctotal__val" id="cartTotal">R$ 0,00</span></div>
+    <a href="https://wa.me/55" target="_blank" class="cbuy">Finalizar via WhatsApp</a>
+    <button class="ckeep" id="cartKeep">Continuar comprando</button>
   </div>
 </aside>
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div class="footer__logo">AM<span>·</span>STORE</div>
-        <p class="footer__tagline">Moda masculina para quem busca presença e autenticidade.</p>
-        <div class="footer__social">
-          <a href="https://www.instagram.com/am.storeoficial018" target="_blank" rel="noopener" aria-label="AM Store no Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://wa.me/55" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__title">Institucional</div>
-        <ul class="footer__links">
-          <li><a href="#">Sobre nós</a></li>
-          <li><a href="#">Contato</a></li>
-          <li><a href="#">Trabalhe conosco</a></li>
-          <li><a href="#">Trocas e devoluções</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__title">Categorias</div>
-        <ul class="footer__links">
-          <li><a href="camisetas.html">Camisetas</a></li>
-          <li><a href="camisas.html">Camisas</a></li>
-          <li><a href="calcas.html">Calças</a></li>
-          <li><a href="tenis.html">Tênis</a></li>
-          <li><a href="acessorios.html">Acessórios</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__title">Fique por dentro</div>
-        <p class="footer__tagline" style="margin-bottom:0;">Novidades, lançamentos e ofertas exclusivas direto no seu e-mail.</p>
-        <form class="footer__form" onsubmit="return false;">
-          <input type="email" placeholder="Seu e-mail" required aria-label="Seu e-mail">
-          <button type="submit">Inscrever</button>
-        </form>
-        <p style="font-size:.72rem;color:var(--stone);margin-top:10px;">Ao se inscrever, você concorda com nossa política de privacidade.</p>
+<footer class="footer"><div class="wrap">
+  <div class="footer__g">
+    <div>
+      <div class="footer__logo">AM<span>·</span>STORE</div>
+      <p class="footer__tag">Moda masculina para quem busca presença e autenticidade.</p>
+      <div class="footer__soc">
+        <a href="https://www.instagram.com/am.storeoficial018" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/55" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
       </div>
     </div>
-    <div class="footer__bottom">
-      <span>© 2026 AM Store. Todos os direitos reservados.</span>
-      <span>Site desenvolvido por <a href="#">LucasDev</a></span>
+    <div>
+      <div class="footer__ttl">Institucional</div>
+      <div class="footer__lnks"><a href="#">Sobre nós</a><a href="#">Contato</a><a href="#">Trabalhe conosco</a><a href="#">Trocas e devoluções</a></div>
+    </div>
+    <div>
+      <div class="footer__ttl">Categorias</div>
+      <div class="footer__lnks"><a href="camisetas.html">Camisetas</a><a href="camisas.html">Camisas</a><a href="calcas.html">Calças</a><a href="tenis.html">Tênis</a><a href="acessorios.html">Acessórios</a></div>
+    </div>
+    <div>
+      <div class="footer__ttl">Fique por dentro</div>
+      <p class="footer__tag" style="margin-bottom:0;">Novidades e ofertas exclusivas direto no seu e-mail.</p>
+      <form class="footer__form" onsubmit="return false;"><input type="email" placeholder="Seu e-mail" required><button type="submit">Inscrever</button></form>
+      <p style="font-size:.7rem;color:var(--stone);margin-top:9px;">Ao se inscrever você concorda com nossa política de privacidade.</p>
     </div>
   </div>
-</footer>
+  <div class="footer__bot"><span>© 2026 AM Store. Todos os direitos reservados.</span><span>Desenvolvido por <a href="#">LucasDev</a></span></div>
+</div></footer>
 <script>
 (function(){
-  /* header scroll */
-  var hdr=document.getElementById('siteHeader');
-  if(hdr){window.addEventListener('scroll',function(){hdr.classList.toggle('is-scrolled',window.scrollY>12);},{passive:true});}
+  /* header */
+  var H=document.getElementById('hdr');
+  window.addEventListener('scroll',function(){H&&H.classList.toggle('scrolled',window.scrollY>10);},{passive:true});
 
   /* mobile menu */
-  var tog=document.getElementById('mobileToggle');
-  var mcl=document.getElementById('mobileClose');
-  var mmn=document.getElementById('mobileMenu');
-  var msc=document.getElementById('scrim');
-  function openMenu(){if(mmn)mmn.classList.add('is-open');if(msc)msc.classList.add('is-open');}
-  function closeMenu(){if(mmn)mmn.classList.remove('is-open');if(msc)msc.classList.remove('is-open');}
-  if(tog)tog.addEventListener('click',openMenu);
-  if(mcl)mcl.addEventListener('click',closeMenu);
-  if(msc)msc.addEventListener('click',closeMenu);
-  if(mmn)mmn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+  var mb=document.getElementById('menuBtn'),mc=document.getElementById('menuClose'),mm=document.getElementById('mobMenu'),ov=document.getElementById('overlay');
+  function openMenu(){mm.classList.add('open');ov.classList.add('open');}
+  function closeMenu(){mm.classList.remove('open');ov.classList.remove('open');}
+  if(mb)mb.addEventListener('click',openMenu);
+  if(mc)mc.addEventListener('click',closeMenu);
+  if(ov)ov.addEventListener('click',function(){closeMenu();closeCart();});
+  if(mm)mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
 
   /* filters */
-  document.querySelectorAll('.filter-btn').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
-      btn.classList.add('active');
-      var f=(btn.getAttribute('data-filter')||'todos').toLowerCase();
-      document.querySelectorAll('.product-card').forEach(function(card){
-        if(f==='todos'){card.style.display='';}
-        else{
-          var t=(card.getAttribute('data-filter')||'').toLowerCase();
-          card.style.display=t===f?'':'none';
-        }
+  document.querySelectorAll('.fbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('.fbtn').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');
+      var f=(b.getAttribute('data-f')||'all');
+      document.querySelectorAll('.pcard').forEach(function(c){
+        c.style.display=(f==='all'||c.getAttribute('data-f')===f)?'':'none';
       });
     });
   });
 
-  /* cart */
-  var CK='amstore_cart';
-  function getCart(){try{return JSON.parse(localStorage.getItem(CK)||'[]');}catch(e){return[];}}
-  function saveCart(c){try{localStorage.setItem(CK,JSON.stringify(c));}catch(e){}}
+  /* cart storage */
+  var CK='am_cart';
+  function gc(){try{return JSON.parse(localStorage.getItem(CK)||'[]');}catch(e){return[];}}
+  function sc(c){try{localStorage.setItem(CK,JSON.stringify(c));}catch(e){}}
+  function money(n){return 'R$ '+n.toFixed(2).replace('.',',').replace(/(d)(?=(d{3})+,)/g,'$1.');}
+  function price2n(s){var v=parseFloat((s||'0').replace(/[^d,]/g,'').replace(',','.'));return isNaN(v)?0:v;}
 
-  function calcTotal(cart){
-    return cart.reduce(function(s,i){
-      var n=parseFloat((i.price||'0').replace('R
-</body>
-</html>,'').trim().replace('.','').replace(',','.'));
-      return s+(isNaN(n)?0:n)*i.qty;
-    },0);
-  }
-  function fmtMoney(n){
-    return 'R$ '+n.toFixed(2).replace('.',',').replace(/(d)(?=(d{3})+,)/g,'$1.');
+  function badge(){
+    var n=gc().reduce(function(s,i){return s+i.qty;},0);
+    var el=document.getElementById('cartBadge');if(el)el.textContent=n;
   }
 
-  function updateBadge(){
-    var n=getCart().reduce(function(s,i){return s+i.qty;},0);
-    var el=document.getElementById('cartCount');
-    if(el)el.textContent=n;
-  }
-
-  function renderCartItems(){
-    var list=document.getElementById('cartItems');
-    var totEl=document.getElementById('cartTotal');
-    if(!list)return;
-    var cart=getCart();
-    if(!cart.length){
-      list.innerHTML='<div class="cart-empty">Seu carrinho está vazio.</div>';
-      if(totEl)totEl.textContent='R$ 0,00';
-      return;
-    }
-    var html='';
-    cart.forEach(function(item){
-      var idx=getCart().findIndex(function(x){return x.name===item.name;});
-      html+='<div class="cart-item">'
+  function render(){
+    var body=document.getElementById('cartBody'),tot=document.getElementById('cartTotal');
+    if(!body)return;
+    var cart=gc();
+    if(!cart.length){body.innerHTML='<div class="cempty">Seu carrinho está vazio.</div>';if(tot)tot.textContent='R$ 0,00';return;}
+    var h='',t=0;
+    cart.forEach(function(item,i){
+      t+=price2n(item.price)*item.qty;
+      h+='<div class="citem">'
         +'<img src="'+item.img+'" alt="'+item.name+'">'
-        +'<div class="cart-item__info">'
-        +'<div class="cart-item__name">'+item.name+'</div>'
-        +'<div class="cart-item__price">'+item.price+'</div>'
-        +'<div class="cart-item__qty">'
-        +'<button onclick="AM.dec('+idx+')">−</button>'
+        +'<div class="citem__info">'
+        +'<div class="citem__name">'+item.name+'</div>'
+        +'<div class="citem__price">'+item.price+'</div>'
+        +'<div class="citem__qty">'
+        +'<button onclick="C.d('+i+')">−</button>'
         +'<span>'+item.qty+'</span>'
-        +'<button onclick="AM.inc('+idx+')">+</button>'
+        +'<button onclick="C.i('+i+')">+</button>'
         +'</div></div>'
-        +'<button class="cart-item__remove" onclick="AM.del('+idx+')">×</button>'
+        +'<button class="citem__del" onclick="C.r('+i+')">×</button>'
         +'</div>';
     });
-    list.innerHTML=html;
-    if(totEl)totEl.textContent=fmtMoney(calcTotal(cart));
+    body.innerHTML=h;if(tot)tot.textContent=money(t);
   }
 
-  window.AM={
-    inc:function(i){var c=getCart();if(c[i])c[i].qty++;saveCart(c);updateBadge();renderCartItems();},
-    dec:function(i){var c=getCart();if(c[i]){c[i].qty--;if(c[i].qty<=0)c.splice(i,1);}saveCart(c);updateBadge();renderCartItems();},
-    del:function(i){var c=getCart();c.splice(i,1);saveCart(c);updateBadge();renderCartItems();}
+  window.C={
+    i:function(i){var c=gc();if(c[i])c[i].qty++;sc(c);badge();render();},
+    d:function(i){var c=gc();if(c[i]){c[i].qty--;if(c[i].qty<1)c.splice(i,1);}sc(c);badge();render();},
+    r:function(i){var c=gc();c.splice(i,1);sc(c);badge();render();}
   };
 
   /* cart drawer */
-  function openCart(){
-    var dr=document.getElementById('cartDrawer');
-    var sc=document.getElementById('cartScrim2');
-    if(dr)dr.classList.add('is-open');
-    if(sc)sc.classList.add('is-open');
-    renderCartItems();
-  }
-  function closeCart(){
-    var dr=document.getElementById('cartDrawer');
-    var sc=document.getElementById('cartScrim2');
-    if(dr)dr.classList.remove('is-open');
-    if(sc)sc.classList.remove('is-open');
-  }
-  var cb=document.getElementById('cartHeaderBtn');
-  if(cb)cb.addEventListener('click',openCart);
-  var cc=document.getElementById('cartClose');
-  if(cc)cc.addEventListener('click',closeCart);
-  var cs=document.getElementById('cartScrim2');
-  if(cs)cs.addEventListener('click',closeCart);
-  var cts=document.getElementById('cartContinue');
-  if(cts)cts.addEventListener('click',closeCart);
+  var drawer=document.getElementById('cdrawer'),scrim=document.getElementById('cscrim');
+  function openCart(){if(drawer)drawer.classList.add('open');if(scrim)scrim.classList.add('open');render();}
+  function closeCart(){if(drawer)drawer.classList.remove('open');if(scrim)scrim.classList.remove('open');}
+  window.closeCart=closeCart;
+  var cb=document.getElementById('cartBtn');if(cb)cb.addEventListener('click',openCart);
+  var cx=document.getElementById('cartX');if(cx)cx.addEventListener('click',closeCart);
+  var ck=document.getElementById('cartKeep');if(ck)ck.addEventListener('click',closeCart);
+  if(scrim)scrim.addEventListener('click',closeCart);
 
   /* add to cart */
-  document.querySelectorAll('.add-to-cart').forEach(function(btn){
+  document.querySelectorAll('.add-btn').forEach(function(btn){
     var orig=btn.innerHTML;
     btn.addEventListener('click',function(){
-      var card=btn.closest('.product-card');
-      var name=btn.getAttribute('data-product')||'';
-      var priceEl=card&&card.querySelector('.product-card__price');
-      var imgEl=card&&card.querySelector('.product-card__img');
-      var price=priceEl?priceEl.textContent:'';
-      var img=imgEl?imgEl.src:'';
-      var c=getCart();
-      var it=c.find(function(x){return x.name===name;});
-      if(it){it.qty++;}else{c.push({name:name,price:price,img:img,qty:1});}
-      saveCart(c);
-      updateBadge();
-      btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Adicionado';
+      var card=btn.closest('.pcard');
+      var name=btn.getAttribute('data-p')||'';
+      var priceEl=card&&card.querySelector('.pcard__price');
+      var imgEl=card&&card.querySelector('.pcard__img');
+      var p=priceEl?priceEl.textContent:'';
+      var img=imgEl?imgEl.getAttribute('src'):'';
+      var c=gc(),it=c.find(function(x){return x.name===name;});
+      if(it){it.qty++;}else{c.push({name:name,price:p,img:img,qty:1});}
+      sc(c);badge();
+      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Adicionado';
       btn.disabled=true;
-      setTimeout(function(){btn.innerHTML=orig;btn.disabled=false;},1600);
+      setTimeout(function(){btn.innerHTML=orig;btn.disabled=false;},1500);
     });
   });
 
   /* wishlist */
-  document.querySelectorAll('.wishlist-btn').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      btn.classList.toggle('is-active');
-      btn.classList.add('pulse');
-      setTimeout(function(){btn.classList.remove('pulse');},350);
-    });
+  document.querySelectorAll('.wbtn').forEach(function(b){
+    b.addEventListener('click',function(){b.classList.toggle('on');});
   });
 
-  updateBadge();
+  badge();
 })();
 </script>
 </body>
