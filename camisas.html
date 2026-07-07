@@ -507,5 +507,65 @@ ul{list-style:none;margin:0;padding:0;}button{font-family:inherit;cursor:pointer
   badge();
 })();
 </script>
+
+<!-- AM Store: Dynamic Supabase Products -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+var SB_URL='https://glzhjqltsrhyapqbgubz.supabase.co';
+var SB_KEY='sb_publishable_zWwK66Ms1A-ReGs1FIMsJw_LbwBIBpK';
+var CATEGORY='camisas';
+var CAT_LABELS={camisetas:'Camisetas',camisas:'Camisas',calcas:'Calças',tenis:'Tênis',acessorios:'Acessórios'};
+
+function esc(s){return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):'';};
+
+async function loadDynamic(){
+  if(typeof supabase==='undefined') return;
+  var {createClient}=supabase;
+  var sb=createClient(SB_URL,SB_KEY);
+  var result=await sb.from('products').select('*').eq('category',CATEGORY).order('created_at',{ascending:false});
+  if(result.error||!result.data||result.data.length===0) return;
+  var data=result.data;
+
+  // Create new section
+  var sec=document.createElement('section');
+  sec.id='supabase-produtos';
+  sec.style.cssText='padding:64px 0;border-top:1px solid #2c2924;';
+  sec.innerHTML='<div class="wrap"><div style="text-align:center;margin-bottom:48px;"><p style="font-size:.72rem;letter-spacing:.2em;color:#9c968a;text-transform:uppercase;margin-bottom:12px;">Chegou Agora</p><h2 style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.01em;">Novidades do Catálogo</h2></div><div id="sbGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;"></div></div>';
+
+  var footer=document.querySelector('.footer')||document.querySelector('footer');
+  if(footer) footer.parentNode.insertBefore(sec,footer);
+  else document.body.appendChild(sec);
+
+  var grid=document.getElementById('sbGrid');
+  data.forEach(function(p){
+    var div=document.createElement('div');
+    div.className='pcard';
+    var imgHtml=p.image_url?'<img class="pcard__img" src="'+esc(p.image_url)+'" alt="'+esc(p.name)+'" loading="lazy">':'<div class="pcard__img" style="aspect-ratio:3/4;background:#1c1a17;display:flex;align-items:center;justify-content:center;color:#2c2924;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>';
+    var bdgHtml=p.badge?'<span class="pcard__badge">'+esc(p.badge)+'</span>':'';
+    div.innerHTML='<div class="pcard__media">'+imgHtml+bdgHtml+'<div class="pcard__overlay"><button class="add-btn" data-p="'+esc(p.name)+'"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></path></svg> Adicionar</button></div></div><div class="pcard__body"><div class="pcard__name">'+esc(p.name)+'</div><div class="pcard__desc">'+esc(p.description||'')+'</div><div class="pcard__price">'+esc(p.price)+'</div></div>';
+    grid.appendChild(div);
+    var btn=div.querySelector('.add-btn');
+    if(btn){
+      btn.addEventListener('click',function(){
+        var orig=btn.innerHTML;
+        var c=JSON.parse(localStorage.getItem('am_cart')||'[]');
+        var it=c.find(function(x){return x.name===p.name;});
+        if(it){it.qty++;}else{c.push({name:p.name,price:p.price,img:p.image_url||'',qty:1});}
+        localStorage.setItem('am_cart',JSON.stringify(c));
+        var badge=document.getElementById('cartCount');
+        if(badge){var t=c.reduce(function(a,b){return a+(b.qty||0);},0);badge.textContent=t;}
+        btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="20 6 9 17 4 12"/></svg> Adicionado';
+        btn.disabled=true;
+        setTimeout(function(){btn.innerHTML=orig;btn.disabled=false;},1500);
+      });
+    }
+  });
+}
+
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',loadDynamic);}
+else{loadDynamic();}
+})();
+</script>
 </body>
 </html>
