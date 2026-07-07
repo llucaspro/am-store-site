@@ -15,28 +15,31 @@ img{display:block;max-width:100%;}a{color:inherit;text-decoration:none;}
 ul{list-style:none;margin:0;padding:0;}button{font-family:inherit;cursor:pointer;}h1,h2,h3,p{margin:0;}
 input,textarea,select{font-family:inherit;}::selection{background:var(--gold);color:var(--onyx);}
 
-/* ===== LOGIN ===== */
 #login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--onyx);background-image:radial-gradient(ellipse at 50% 0%,rgba(198,161,91,.09) 0%,transparent 60%);}
-.login-box{width:min(420px,92vw);background:var(--onyx-2);border:1px solid var(--line);border-radius:16px;padding:48px 40px;display:flex;flex-direction:column;align-items:center;gap:32px;}
+.login-box{width:min(420px,92vw);background:var(--onyx-2);border:1px solid var(--line);border-radius:16px;padding:48px 40px;display:flex;flex-direction:column;align-items:center;gap:28px;}
 .login-logo{font-family:var(--fH);font-weight:800;font-size:1.7rem;letter-spacing:.2em;}
 .login-logo span{color:var(--gold);}
-.login-label{font-size:.68rem;letter-spacing:.16em;color:var(--stone);text-transform:uppercase;margin-top:-24px;}
-.login-form{width:100%;display:flex;flex-direction:column;gap:16px;}
-.login-form label{font-size:.76rem;font-weight:600;letter-spacing:.06em;color:var(--stone);display:block;margin-bottom:6px;}
-.login-form input{width:100%;background:var(--onyx-3);border:1px solid var(--line);border-radius:8px;padding:12px 16px;color:var(--ivory);font-size:.92rem;outline:none;transition:border-color .2s;}
+.login-sub{font-size:.68rem;letter-spacing:.16em;color:var(--stone);text-transform:uppercase;margin-top:-20px;}
+.login-form{width:100%;display:flex;flex-direction:column;gap:14px;}
+.login-form label{font-size:.74rem;font-weight:600;letter-spacing:.06em;color:var(--stone);display:block;margin-bottom:5px;}
+.login-form input{width:100%;background:var(--onyx-3);border:1px solid var(--line);border-radius:8px;padding:11px 14px;color:var(--ivory);font-size:.9rem;outline:none;transition:border-color .2s;}
 .login-form input:focus{border-color:var(--gold);}
-.btn-login{width:100%;padding:13px;background:var(--gold);color:var(--onyx);border:none;border-radius:8px;font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .15s;margin-top:4px;}
+.btn-login{width:100%;padding:12px;background:var(--gold);color:var(--onyx);border:none;border-radius:8px;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .15s;margin-top:4px;}
 .btn-login:hover{background:var(--gold-b);}
 .btn-login:active{transform:scale(.98);}
-.login-error{color:#e74c3c;font-size:.82rem;text-align:center;display:none;}
+.btn-login:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.login-error{color:#e74c3c;font-size:.8rem;text-align:center;display:none;}
 .login-error.show{display:block;}
+.login-hint{font-size:.73rem;color:var(--stone);text-align:center;line-height:1.5;border-top:1px solid var(--line);padding-top:16px;width:100%;}
+.login-hint a{color:var(--gold);text-decoration:underline;}
 
-/* ===== ADMIN LAYOUT ===== */
 #admin-panel{min-height:100vh;display:none;flex-direction:column;}
 .adm-header{position:sticky;top:0;z-index:50;background:var(--onyx-2);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:62px;gap:12px;}
 .adm-logo{font-family:var(--fH);font-weight:800;font-size:1.05rem;letter-spacing:.12em;white-space:nowrap;flex-shrink:0;}
 .adm-logo span{color:var(--gold);}
 .adm-logo small{display:block;font-size:.55rem;font-weight:500;letter-spacing:.16em;color:var(--stone);text-transform:uppercase;}
+.adm-user{font-size:.72rem;color:var(--stone);display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.adm-user span{color:var(--gold-b);font-weight:600;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .adm-tabs{display:flex;gap:4px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;}
 .adm-tabs::-webkit-scrollbar{display:none;}
 .adm-tab{padding:6px 13px;border-radius:6px;background:none;border:1px solid var(--line);color:var(--stone);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;transition:all .2s;}
@@ -51,7 +54,6 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
 .adm-content{display:grid;grid-template-columns:360px 1fr;min-height:calc(100vh - 62px);}
 @media(max-width:900px){.adm-content{grid-template-columns:1fr;}}
 
-/* ===== FORM PANEL ===== */
 .adm-form-panel{background:var(--onyx-2);border-right:1px solid var(--line);padding:24px 20px;display:flex;flex-direction:column;gap:18px;overflow-y:auto;}
 .adm-panel-title{font-family:var(--fH);font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:space-between;}
 .badge-edit{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;background:rgba(198,161,91,.18);color:var(--gold-b);display:none;}
@@ -89,7 +91,6 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
 .form-msg.success{display:block;background:rgba(39,174,96,.14);border:1px solid rgba(39,174,96,.3);color:#2ecc71;}
 .form-msg.error{display:block;background:rgba(192,57,43,.14);border:1px solid rgba(192,57,43,.3);color:#e74c3c;}
 
-/* ===== PRODUCTS PANEL ===== */
 .adm-products-panel{padding:24px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:18px;}
 .adm-products-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .adm-products-title{font-family:var(--fH);font-weight:700;font-size:.95rem;}
@@ -98,7 +99,7 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
 .btn-add:hover{background:rgba(198,161,91,.22);}
 .products-loading,.products-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 24px;color:var(--stone);font-size:.88rem;text-align:center;gap:12px;}
 .products-empty small{font-size:.76rem;}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:14px;}
 .adm-pcard{background:var(--onyx-2);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .3s;}
 .adm-pcard:hover{border-color:rgba(198,161,91,.4);}
 .adm-pcard__img{aspect-ratio:4/3;background:var(--onyx-3);overflow:hidden;position:relative;}
@@ -116,10 +117,9 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
 .btn-delete{background:rgba(192,57,43,.1);color:#e74c3c;}
 .btn-delete:hover{background:rgba(192,57,43,.25);}
 
-/* ===== SETUP MODAL ===== */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
 .modal-overlay.open{display:flex;}
-.modal-box{background:var(--onyx-2);border:1px solid var(--line);border-radius:14px;width:min(640px,100%);max-height:85vh;overflow-y:auto;padding:32px;}
+.modal-box{background:var(--onyx-2);border:1px solid var(--line);border-radius:14px;width:min(660px,100%);max-height:85vh;overflow-y:auto;padding:32px;}
 .modal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px;}
 .modal-title{font-family:var(--fH);font-weight:700;font-size:1.1rem;}
 .modal-close{background:none;border:none;color:var(--stone);font-size:1.5rem;line-height:1;padding:0;transition:color .2s;}
@@ -133,7 +133,6 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
 .step-item{display:flex;gap:10px;font-size:.82rem;color:var(--stone);line-height:1.5;align-items:flex-start;}
 .step-num{min-width:20px;height:20px;background:var(--gold-dim);border:1px solid var(--gold);border-radius:50%;color:var(--gold-b);font-size:.66rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 
-/* ===== DELETE CONFIRM ===== */
 .confirm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;}
 .confirm-overlay.open{display:flex;}
 .confirm-box{background:var(--onyx-2);border:1px solid rgba(192,57,43,.4);border-radius:12px;width:min(360px,100%);padding:28px 24px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;}
@@ -145,8 +144,7 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
 .btn-confirm-cancel{flex:1;padding:10px;background:none;border:1px solid var(--line);border-radius:7px;color:var(--stone);font-size:.78rem;font-weight:600;transition:all .2s;}
 .btn-confirm-cancel:hover{border-color:var(--ivory);color:var(--ivory);}
 
-/* Toast */
-.toast{position:fixed;bottom:22px;right:22px;background:var(--onyx-2);border:1px solid var(--line);border-radius:10px;padding:13px 18px;font-size:.83rem;z-index:500;transform:translateY(14px);opacity:0;transition:all .3s var(--ease);pointer-events:none;display:flex;align-items:center;gap:10px;max-width:300px;}
+.toast{position:fixed;bottom:22px;right:22px;background:var(--onyx-2);border:1px solid var(--line);border-radius:10px;padding:13px 18px;font-size:.83rem;z-index:500;transform:translateY(14px);opacity:0;transition:all .3s var(--ease);pointer-events:none;max-width:300px;}
 .toast.show{transform:translateY(0);opacity:1;}
 .toast.success{border-color:rgba(39,174,96,.4);color:#2ecc71;}
 .toast.error{border-color:rgba(192,57,43,.4);color:#e74c3c;}
@@ -154,25 +152,34 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
 </head>
 <body>
 
-<!-- LOGIN -->
+<!-- LOGIN (via Supabase Auth) -->
 <div id="login-screen">
   <div class="login-box">
     <div style="text-align:center;">
       <div class="login-logo">AM<span>·</span>STORE</div>
-      <div class="login-label">Painel Administrativo</div>
+      <div class="login-sub">Painel Administrativo</div>
     </div>
     <form class="login-form" id="loginForm">
       <div>
-        <label for="loginPass">Senha de Acesso</label>
-        <input type="password" id="loginPass" placeholder="Digite a senha" autocomplete="current-password">
+        <label for="loginEmail">E-mail</label>
+        <input type="email" id="loginEmail" placeholder="admin@amstore.com" autocomplete="email" required>
       </div>
-      <button type="submit" class="btn-login">Entrar no Painel</button>
-      <p class="login-error" id="loginError">Senha incorreta. Tente novamente.</p>
+      <div>
+        <label for="loginPass">Senha</label>
+        <input type="password" id="loginPass" placeholder="Sua senha" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn-login" id="btnLogin">Entrar no Painel</button>
+      <p class="login-error" id="loginError">E-mail ou senha incorretos.</p>
     </form>
+    <div class="login-hint">
+      Acesso via <strong>Supabase Auth</strong>.<br>
+      Crie o usuário admin em <a href="https://supabase.com/dashboard" target="_blank">supabase.com/dashboard</a><br>
+      → Authentication → Users → Add user.
+    </div>
   </div>
 </div>
 
-<!-- ADMIN -->
+<!-- ADMIN PANEL -->
 <div id="admin-panel">
   <header class="adm-header">
     <div class="adm-logo">AM<span>·</span>STORE<small>Admin</small></div>
@@ -184,6 +191,7 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
       <button class="adm-tab" data-cat="acessorios">Acessórios</button>
     </div>
     <div class="adm-header-actions">
+      <div class="adm-user">Logado: <span id="userEmail"></span></div>
       <button class="btn-hdr" id="btnSetup">⚙ Setup</button>
       <a href="/" class="btn-hdr">← Site</a>
       <button class="btn-logout" id="btnLogout">Sair</button>
@@ -191,13 +199,12 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
   </header>
 
   <div class="adm-content">
-    <!-- FORM -->
+    <!-- FORM PANEL -->
     <div class="adm-form-panel">
       <div class="adm-panel-title">
         <span id="formTitle">Adicionar Produto</span>
         <span class="badge-edit" id="editBadge">Editando</span>
       </div>
-
       <div class="form-group">
         <label class="form-label">Nome do Produto *</label>
         <input type="text" class="form-input" id="fName" placeholder="Ex: Camiseta Premium Essential">
@@ -208,7 +215,7 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
       </div>
       <div class="form-group">
         <label class="form-label">Descrição</label>
-        <textarea class="form-textarea" id="fDesc" placeholder="Breve descrição do produto (opcional)"></textarea>
+        <textarea class="form-textarea" id="fDesc" placeholder="Breve descrição (opcional)"></textarea>
       </div>
       <div class="form-group">
         <label class="form-label">Categoria *</label>
@@ -243,18 +250,16 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
           <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
         </div>
       </div>
-
       <input type="hidden" id="fImageUrl">
       <input type="hidden" id="fEditId">
       <div class="form-msg" id="formMsg"></div>
-
       <div class="form-actions">
         <button class="btn-save" id="btnSave">Salvar Produto</button>
         <button class="btn-cancel" id="btnCancel" style="display:none">Cancelar</button>
       </div>
     </div>
 
-    <!-- PRODUCTS -->
+    <!-- PRODUCTS PANEL -->
     <div class="adm-products-panel">
       <div class="adm-products-header">
         <div>
@@ -278,12 +283,23 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
       <div class="modal-title">Configuração do Supabase</div>
       <button class="modal-close" id="setupClose">×</button>
     </div>
-    <p class="modal-desc">Para o painel funcionar completamente, crie a tabela de produtos e o bucket de imagens no Supabase.</p>
+    <p class="modal-desc">Execute os passos abaixo no seu projeto Supabase para ativar o painel admin com autenticação segura.</p>
 
     <div class="modal-section">
-      <h3>1 — Criar tabela de produtos</h3>
-      <p>Acesse o <strong>SQL Editor</strong> no painel do Supabase e execute:</p>
-      <div class="code-block">CREATE TABLE IF NOT EXISTS products (
+      <h3>1 — Criar usuário admin</h3>
+      <div class="step-list">
+        <div class="step-item"><span class="step-num">1</span><span>Acesse <strong>supabase.com/dashboard</strong></span></div>
+        <div class="step-item"><span class="step-num">2</span><span>Vá em <strong>Authentication → Users → Add user</strong></span></div>
+        <div class="step-item"><span class="step-num">3</span><span>Crie com seu e-mail e uma senha segura</span></div>
+        <div class="step-item"><span class="step-num">4</span><span>Use esses dados para fazer login neste painel</span></div>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h3>2 — Tabela de produtos + políticas seguras</h3>
+      <p>No <strong>SQL Editor</strong> do Supabase, execute:</p>
+      <div class="code-block">-- Tabela de produtos
+CREATE TABLE IF NOT EXISTS products (
   id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
   name text NOT NULL,
   price text NOT NULL,
@@ -294,37 +310,42 @@ input,textarea,select{font-family:inherit;}::selection{background:var(--gold);co
   created_at timestamptz DEFAULT now()
 );
 
+-- Habilitar RLS
 ALTER TABLE products ENABLE ROW LEVEL SECURITY;
 
+-- Qualquer visitante pode LER os produtos (vitrine pública)
 CREATE POLICY "public_read" ON products
   FOR SELECT TO public USING (true);
 
-CREATE POLICY "anon_write" ON products
-  FOR ALL TO anon USING (true) WITH CHECK (true);</div>
+-- Apenas usuários autenticados (admin logado) podem ESCREVER
+CREATE POLICY "auth_write" ON products
+  FOR ALL TO authenticated USING (true) WITH CHECK (true);</div>
     </div>
 
     <div class="modal-section">
-      <h3>2 — Criar bucket de imagens</h3>
-      <div class="step-list">
-        <div class="step-item"><span class="step-num">1</span><span>Vá em <strong>Storage</strong> no menu do Supabase</span></div>
-        <div class="step-item"><span class="step-num">2</span><span>Clique em <strong>New bucket</strong></span></div>
-        <div class="step-item"><span class="step-num">3</span><span>Nome: <strong>produtos</strong> — marque <strong>Public bucket</strong></span></div>
-        <div class="step-item"><span class="step-num">4</span><span>Execute o SQL abaixo no SQL Editor</span></div>
-      </div>
-      <div class="code-block">INSERT INTO storage.buckets (id, name, public)
+      <h3>3 — Bucket de imagens seguro</h3>
+      <p>No <strong>SQL Editor</strong>, execute também:</p>
+      <div class="code-block">-- Criar bucket público (leitura pública, upload restrito)
+INSERT INTO storage.buckets (id, name, public)
   VALUES ('produtos', 'produtos', true)
   ON CONFLICT (id) DO UPDATE SET public = true;
 
-CREATE POLICY "anon_upload" ON storage.objects
-  FOR INSERT TO anon WITH CHECK (bucket_id = 'produtos');
+-- Apenas autenticados podem fazer upload
+CREATE POLICY "auth_upload" ON storage.objects
+  FOR INSERT TO authenticated WITH CHECK (bucket_id = 'produtos');
 
-CREATE POLICY "public_objects" ON storage.objects
+-- Apenas autenticados podem deletar imagens
+CREATE POLICY "auth_delete" ON storage.objects
+  FOR DELETE TO authenticated USING (bucket_id = 'produtos');
+
+-- Qualquer visitante pode ver as imagens (URL pública)
+CREATE POLICY "public_images" ON storage.objects
   FOR SELECT TO public USING (bucket_id = 'produtos');</div>
     </div>
 
     <div class="modal-section">
-      <h3>Pronto!</h3>
-      <p>Após o setup, você pode fazer upload de fotos da galeria e gerenciar produtos. Eles aparecerão automaticamente nas páginas do site.</p>
+      <h3>Segurança</h3>
+      <p>Com essas políticas, <strong>somente usuários autenticados no Supabase</strong> conseguem adicionar, editar ou excluir produtos e fazer upload de imagens. Visitantes do site só conseguem visualizar.</p>
     </div>
   </div>
 </div>
@@ -348,44 +369,49 @@ CREATE POLICY "public_objects" ON storage.objects
 <script>
 (function(){
 'use strict';
-const PASS='amstore2026';
-const SB_URL='https://glzhjqltsrhyapqbgubz.supabase.co';
-const SB_KEY='sb_publishable_zWwK66Ms1A-ReGs1FIMsJw_LbwBIBpK';
-const BUCKET='produtos';
-const {createClient}=supabase;
-const sb=createClient(SB_URL,SB_KEY);
+var SB_URL='https://glzhjqltsrhyapqbgubz.supabase.co';
+var SB_KEY='sb_publishable_zWwK66Ms1A-ReGs1FIMsJw_LbwBIBpK';
+var BUCKET='produtos';
+var sb=supabase.createClient(SB_URL,SB_KEY);
 
-let cat='camisetas',editId=null,delId=null,imgUrl='';
-const catLabels={camisetas:'Camisetas',camisas:'Camisas',calcas:'Calças',tenis:'Tênis',acessorios:'Acessórios'};
+var cat='camisetas',editId=null,delId=null,imgUrl='';
+var catLabels={camisetas:'Camisetas',camisas:'Camisas',calcas:'Calças',tenis:'Tênis',acessorios:'Acessórios'};
 
-// LOGIN
-document.getElementById('loginForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  if(document.getElementById('loginPass').value===PASS){
-    sessionStorage.setItem('am_adm','1');
-    showAdmin();
+// ---- AUTH ----
+sb.auth.onAuthStateChange(function(event,session){
+  if(session && session.user){
+    document.getElementById('userEmail').textContent=session.user.email||'';
+    document.getElementById('login-screen').style.display='none';
+    var p=document.getElementById('admin-panel');
+    p.style.display='flex';
+    loadProducts();
   } else {
+    document.getElementById('admin-panel').style.display='none';
+    document.getElementById('login-screen').style.display='flex';
+  }
+});
+
+// Login via Supabase Auth
+document.getElementById('loginForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  var email=document.getElementById('loginEmail').value.trim();
+  var pass=document.getElementById('loginPass').value;
+  var btn=document.getElementById('btnLogin');
+  btn.disabled=true;btn.textContent='Entrando...';
+  var {data,error}=await sb.auth.signInWithPassword({email:email,password:pass});
+  btn.disabled=false;btn.textContent='Entrar no Painel';
+  if(error){
     document.getElementById('loginError').classList.add('show');
     document.getElementById('loginPass').value='';
   }
 });
-if(sessionStorage.getItem('am_adm')==='1') showAdmin();
 
-function showAdmin(){
-  document.getElementById('login-screen').style.display='none';
-  var p=document.getElementById('admin-panel');
-  p.style.display='flex';
-  loadProducts();
-}
-
-document.getElementById('btnLogout').addEventListener('click',function(){
-  sessionStorage.removeItem('am_adm');
-  document.getElementById('admin-panel').style.display='none';
-  document.getElementById('login-screen').style.display='flex';
-  document.getElementById('loginPass').value='';
+// Logout
+document.getElementById('btnLogout').addEventListener('click',async function(){
+  await sb.auth.signOut();
 });
 
-// TABS
+// ---- TABS ----
 document.getElementById('categoryTabs').addEventListener('click',function(e){
   var t=e.target.closest('.adm-tab');
   if(!t) return;
@@ -394,18 +420,17 @@ document.getElementById('categoryTabs').addEventListener('click',function(e){
   cat=t.dataset.cat;
   document.getElementById('panelTitle').textContent=catLabels[cat]||cat;
   document.getElementById('fCat').value=cat;
-  resetForm();
-  loadProducts();
+  resetForm();loadProducts();
 });
 
-// LOAD PRODUCTS
+// ---- LOAD PRODUCTS ----
 async function loadProducts(){
   var c=document.getElementById('productsContainer');
   c.innerHTML='<div class="products-loading">Carregando...</div>';
   var {data,error}=await sb.from('products').select('*').eq('category',cat).order('created_at',{ascending:false});
   if(error){
     if(error.code==='42P01'){
-      c.innerHTML='<div class="products-empty"><p style="color:#e74c3c">Tabela não configurada</p><small>Clique em ⚙ Setup para ver as instruções de configuração</small></div>';
+      c.innerHTML='<div class="products-empty"><p style="color:#e74c3c">Tabela não configurada</p><small>Clique em ⚙ Setup para ver as instruções</small></div>';
     } else {
       c.innerHTML='<div class="products-empty"><p>Erro: '+esc(error.message)+'</p></div>';
     }
@@ -421,10 +446,7 @@ async function loadProducts(){
   h+='</div>';
   c.innerHTML=h;
   c.querySelectorAll('.btn-edit').forEach(function(b){
-    b.addEventListener('click',function(){
-      var p=data.find(function(x){return x.id===b.dataset.id;});
-      if(p) startEdit(p);
-    });
+    b.addEventListener('click',function(){var p=data.find(function(x){return x.id===b.dataset.id;});if(p)startEdit(p);});
   });
   c.querySelectorAll('.btn-delete').forEach(function(b){
     b.addEventListener('click',function(){openConfirm(b.dataset.id,b.dataset.name);});
@@ -432,19 +454,15 @@ async function loadProducts(){
 }
 
 function card(p){
-  var img=p.image_url
-    ?'<img src="'+esc(p.image_url)+'" alt="'+esc(p.name)+'" loading="lazy">'
-    :'<div class="adm-pcard__placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>';
+  var img=p.image_url?'<img src="'+esc(p.image_url)+'" alt="'+esc(p.name)+'" loading="lazy">':'<div class="adm-pcard__placeholder"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>';
   var bdg=p.badge?'<span class="adm-pcard__badge">'+esc(p.badge)+'</span>':'';
   return '<div class="adm-pcard"><div class="adm-pcard__img">'+img+bdg+'</div><div class="adm-pcard__body"><div class="adm-pcard__name">'+esc(p.name)+'</div><div class="adm-pcard__price">'+esc(p.price)+'</div>'+(p.description?'<div class="adm-pcard__desc">'+esc(p.description)+'</div>':'')+'<div class="adm-pcard__actions"><button class="btn-edit" data-id="'+p.id+'">Editar</button><button class="btn-delete" data-id="'+p.id+'" data-name="'+esc(p.name)+'">Excluir</button></div></div></div>';
 }
 
-// UPLOAD
-function getUploadZone(){return document.getElementById('uploadZone');}
-function getFileInput(){return document.getElementById('fileInput');}
-
+// ---- IMAGE UPLOAD ----
 function bindUpload(){
-  var uz=getUploadZone(),fi=getFileInput();
+  var uz=document.getElementById('uploadZone');
+  var fi=document.getElementById('fileInput');
   if(uz){
     uz.addEventListener('dragover',function(e){e.preventDefault();uz.classList.add('drag-over');});
     uz.addEventListener('dragleave',function(){uz.classList.remove('drag-over');});
@@ -459,13 +477,17 @@ async function handleFile(file){
   if(file.size>10*1024*1024){toast('Imagem muito grande. Máx 10MB.','error');return;}
   var prog=document.getElementById('uploadProgress'),fill=document.getElementById('progressFill');
   prog.classList.add('show');fill.style.width='25%';
-  document.getElementById('uploadProgressText').textContent='Enviando imagem...';
-  var ext=file.name.split('.').pop().toLowerCase()||'jpg';
+  document.getElementById('uploadProgressText').textContent='Enviando...';
+  var ext=(file.name.split('.').pop()||'jpg').toLowerCase();
   var fn='prod_'+Date.now()+'_'+Math.random().toString(36).substr(2,5)+'.'+ext;
   fill.style.width='55%';
   var {data,error}=await sb.storage.from(BUCKET).upload(fn,file,{contentType:file.type,upsert:false});
   fill.style.width='100%';
-  if(error){prog.classList.remove('show');toast('Erro no upload: '+error.message,'error');return;}
+  if(error){
+    prog.classList.remove('show');
+    toast('Erro no upload: '+(error.message==='new row violates row-level security policy'?'Verifique as políticas do Storage no Setup.':error.message),'error');
+    return;
+  }
   var {data:u}=sb.storage.from(BUCKET).getPublicUrl(fn);
   imgUrl=u.publicUrl;
   document.getElementById('fImageUrl').value=imgUrl;
@@ -484,19 +506,21 @@ function resetUpload(){
   bindUpload();
 }
 
-// SAVE
+// ---- SAVE ----
 document.getElementById('btnSave').addEventListener('click',saveProduct);
 async function saveProduct(){
   var name=document.getElementById('fName').value.trim();
   var price=document.getElementById('fPrice').value.trim();
-  var desc=document.getElementById('fDesc').value.trim();
-  var pcat=document.getElementById('fCat').value;
-  var badge=document.getElementById('fBadge').value.trim();
-  var image_url=document.getElementById('fImageUrl').value||imgUrl;
   if(!name||!price){showMsg('Preencha o nome e o preço.','error');return;}
+  var payload={
+    name,price,
+    description:document.getElementById('fDesc').value.trim(),
+    category:document.getElementById('fCat').value,
+    image_url:document.getElementById('fImageUrl').value||imgUrl,
+    badge:document.getElementById('fBadge').value.trim()
+  };
   var btn=document.getElementById('btnSave');
   btn.disabled=true;btn.textContent=editId?'Salvando...':'Adicionando...';
-  var payload={name,price,description:desc,category:pcat,image_url,badge};
   var res=editId?await sb.from('products').update(payload).eq('id',editId):await sb.from('products').insert([payload]);
   btn.disabled=false;btn.textContent=editId?'Atualizar Produto':'Salvar Produto';
   if(res.error){showMsg('Erro: '+res.error.message,'error');return;}
@@ -504,7 +528,7 @@ async function saveProduct(){
   resetForm();loadProducts();
 }
 
-// EDIT
+// ---- EDIT ----
 function startEdit(p){
   editId=p.id;
   document.getElementById('fEditId').value=p.id;
@@ -535,11 +559,10 @@ function resetForm(){
   document.getElementById('formMsg').className='form-msg';
   resetUpload();
 }
-
 document.getElementById('btnCancel').addEventListener('click',resetForm);
 document.getElementById('btnAddNew').addEventListener('click',function(){resetForm();document.querySelector('.adm-form-panel').scrollIntoView({behavior:'smooth',block:'start'});});
 
-// DELETE
+// ---- DELETE ----
 function openConfirm(id,name){
   delId=id;
   document.getElementById('confirmName').textContent='"'+name+'" será removido permanentemente.';
@@ -552,23 +575,21 @@ document.getElementById('confirmDelete').addEventListener('click',async function
   btn.textContent='Excluindo...';btn.disabled=true;
   var {error}=await sb.from('products').delete().eq('id',delId);
   btn.textContent='Excluir';btn.disabled=false;
-  document.getElementById('confirmOverlay').classList.remove('open');
-  delId=null;
-  if(error){toast('Erro ao excluir: '+error.message,'error');}
+  document.getElementById('confirmOverlay').classList.remove('open');delId=null;
+  if(error){toast('Erro: '+error.message,'error');}
   else{toast('Produto excluído.','success');loadProducts();}
 });
 
-// SETUP MODAL
+// ---- SETUP MODAL ----
 document.getElementById('btnSetup').addEventListener('click',function(){document.getElementById('setupModal').classList.add('open');});
 document.getElementById('setupClose').addEventListener('click',function(){document.getElementById('setupModal').classList.remove('open');});
 document.getElementById('setupModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});
 
-// HELPERS
+// ---- HELPERS ----
 function showMsg(msg,type){var el=document.getElementById('formMsg');el.textContent=msg;el.className='form-msg '+type;}
 var toastT;
 function toast(msg,type){var el=document.getElementById('toast');el.textContent=msg;el.className='toast '+type+' show';clearTimeout(toastT);toastT=setTimeout(function(){el.classList.remove('show');},3500);}
 function esc(s){return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):'';} 
-
 })();
 </script>
 </body>
