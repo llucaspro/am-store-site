@@ -166,7 +166,11 @@ ul{list-style:none;margin:0;padding:0;}button{font-family:inherit;cursor:pointer
 .pcard__img--ph{display:flex;align-items:center;justify-content:center;background:var(--onyx-3);color:var(--line);}
 .pagination{display:none;}
 .pg-ellipsis{color:var(--stone);padding:0 4px;line-height:38px;display:inline-flex;align-items:center;}
---rs:var(--r);
+
+/* pgrid fade transition (set in CSS, not JS) */
+.pgrid{transition:opacity .12s ease;}
+/* pagination ellipsis */
+.pg-ellipsis{color:var(--stone);padding:0 5px;display:inline-flex;align-items:center;height:38px;}
 </style>
 </head>
 <body>
@@ -284,6 +288,7 @@ ul{list-style:none;margin:0;padding:0;}button{font-family:inherit;cursor:pointer
       b.classList.add('on');
       var f=(b.getAttribute('data-f')||'all');
       document.querySelectorAll('.pcard').forEach(function(c){
+        if(c.getAttribute('data-sb')==='1')return; // Supabase cards — handled by pagination
         c.style.display=(f==='all'||c.getAttribute('data-f')===f)?'':'none';
       });
     });
@@ -377,6 +382,9 @@ ul{list-style:none;margin:0;padding:0;}button{font-family:inherit;cursor:pointer
 
 
 <!-- AM Store: Produtos Dinâmicos via Supabase -->
+
+
+<!-- AM Store: Produtos Dinâmicos via Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 (function(){
@@ -419,7 +427,7 @@ function scrollToGrid(){
   var hdr=document.getElementById('hdr');
   var hdrH=hdr?hdr.offsetHeight:64;
   var top=grid.getBoundingClientRect().top+window.pageYOffset-(hdrH+20);
-  if(window.pageYOffset>top+40) window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+  if(window.pageYOffset>top+40)window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
 }
 
 function renderPage(pg,skipScroll){
@@ -430,14 +438,19 @@ function renderPage(pg,skipScroll){
   if(currentPage>totalPages)currentPage=1;
   var start=(currentPage-1)*PER_PAGE;
   var end=start+PER_PAGE;
+  // Fade out
   if(grid){grid.style.opacity='0';grid.style.pointerEvents='none';}
   setTimeout(function(){
     allCards.forEach(function(c){c.style.display='none';});
     visible.slice(start,end).forEach(function(c){c.style.display='';});
     buildPagination(currentPage,totalPages);
-    if(grid){grid.style.opacity='1';grid.style.pointerEvents='';}
+    if(grid){
+      void grid.offsetHeight; // force reflow so browser registers opacity=0 before animating to 1
+      grid.style.opacity='1';
+      grid.style.pointerEvents='';
+    }
     if(!skipScroll)scrollToGrid();
-  },160);
+  },140); // 140ms > 120ms transition — ensures fade-out completes first
 }
 
 function buildPagination(cur,total){
@@ -450,7 +463,7 @@ function buildPagination(cur,total){
   if(s>1)html+='<a href="#" data-pg="1">1</a>'+(s>2?'<span class="pg-ellipsis">&#8230;</span>':'');
   for(var i=s;i<=e;i++)html+='<a href="#" class="'+(i===cur?'on':'')+'" data-pg="'+i+'">'+i+'</a>';
   if(e<total)html+=(e<total-1?'<span class="pg-ellipsis">&#8230;</span>':'')+'<a href="#" data-pg="'+total+'">'+total+'</a>';
-  if(cur<total)html+='<a href="#" data-pg="'+(cur+1)+'" aria-label="Próxima página">&#8594;</a>';
+  if(cur<total)html+='<a href="#" data-pg="'+(cur+1)+'" aria-label="Próxima">&#8594;</a>';
   nav.innerHTML=html;
   nav.querySelectorAll('a[data-pg]').forEach(function(a){
     a.addEventListener('click',function(e){
@@ -481,16 +494,13 @@ function createCard(p){
     '<div class="pcard__img pcard__img--ph"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>';
   a.innerHTML=
     '<div class="pcard__media">'+imgHtml+badgeHtml+
-    '<button class="wbtn" type="button" aria-label="Favoritar">'+
-    '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>'+
+    '<button class="wbtn" type="button" aria-label="Favoritar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>'+
     '<div class="pcard__cta"><button class="add-btn" data-p="'+esc(p.name)+'">'+
     '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M6 8h12l-1 12H7L6 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>'+
     ' Adicionar ao carrinho</button></div></div>'+
-    '<div class="pcard__body">'+
-    '<div class="pcard__name">'+esc(p.name)+'</div>'+
+    '<div class="pcard__body"><div class="pcard__name">'+esc(p.name)+'</div>'+
     '<div class="pcard__desc">'+esc(p.description||'')+'</div>'+
-    '<div class="pcard__foot"><span class="pcard__price">'+esc(p.price)+'</span></div>'+
-    '</div>';
+    '<div class="pcard__foot"><span class="pcard__price">'+esc(p.price)+'</span></div></div>';
 
   var wb=a.querySelector('.wbtn');
   if(wb)wb.addEventListener('click',function(){wb.classList.toggle('on');});
@@ -519,26 +529,33 @@ async function loadDynamic(){
   grid=document.querySelector('.pgrid');
   var nav=document.querySelector('.pagination');
   if(nav)nav.style.display='none';
-  if(grid){
-    grid.style.transition='opacity 0.16s ease';
-    showSkeletons();
-  }
-  if(typeof supabase==='undefined'){showEmpty('Erro ao carregar biblioteca.');return;}
+  if(grid){showSkeletons();}
+  if(typeof supabase==='undefined'){showEmpty('Erro ao carregar.');return;}
   var sb=supabase.createClient(SB_URL,SB_KEY);
   var res=await sb.from('products').select('*').eq('category',CATEGORY).order('created_at',{ascending:false});
   if(res.error||!res.data||res.data.length===0){
-    showEmpty(res.error?'Erro: '+res.error.message:'Nenhum produto cadastrado ainda.');return;
+    showEmpty(res.error?'Erro ao buscar produtos.':'Nenhum produto cadastrado ainda.');return;
   }
   if(!grid)return;
+  // Fade out skeleton, then swap content
   grid.style.opacity='0';
+  grid.style.pointerEvents='none';
   setTimeout(function(){
     grid.innerHTML='';
     var cards=res.data.map(createCard);
     cards.forEach(function(c){grid.appendChild(c);});
     allCards=cards;
     hookFilters();
-    renderPage(1,true);
-  },100);
+    // Render page 1 with fade-in
+    currentPage=1;
+    var total=cards.length;
+    var totalPages=Math.max(1,Math.ceil(total/PER_PAGE));
+    cards.forEach(function(c,i){c.style.display=i<PER_PAGE?'':'none';});
+    buildPagination(1,totalPages);
+    void grid.offsetHeight; // force reflow
+    grid.style.opacity='1';
+    grid.style.pointerEvents='';
+  },150); // 150ms > 120ms CSS transition — ensures skeleton fades out fully
 }
 
 function showEmpty(msg){
@@ -546,8 +563,10 @@ function showEmpty(msg){
   grid.style.opacity='0';
   setTimeout(function(){
     grid.innerHTML='<div class="pgrid-empty"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg><p>'+msg+'</p></div>';
+    void grid.offsetHeight;
     grid.style.opacity='1';
-  },100);
+    grid.style.pointerEvents='';
+  },150);
 }
 
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',loadDynamic);}
