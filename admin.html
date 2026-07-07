@@ -521,10 +521,11 @@ async function saveProduct(){
   };
   var btn=document.getElementById('btnSave');
   btn.disabled=true;btn.textContent=editId?'Salvando...':'Adicionando...';
-  var res=editId?await sb.from('products').update(payload).eq('id',editId):await sb.from('products').insert([payload]);
+  var res=editId?await sb.from('products').update(payload).eq('id',editId).select():await sb.from('products').insert([payload]).select();
   btn.disabled=false;btn.textContent=editId?'Atualizar Produto':'Salvar Produto';
   if(res.error){showMsg('Erro: '+res.error.message,'error');return;}
-  toast(editId?'Produto atualizado!':'Produto adicionado!','success');
+  if(res.data&&res.data.length===0&&editId){showMsg('Não foi possível salvar. Verifique se você está autenticado ou as políticas RLS do Supabase.','error');return;}
+  toast(editId?'✅ Produto atualizado no site!':'✅ Produto adicionado!','success');
   resetForm();loadProducts();
 }
 
