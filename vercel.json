@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/camisetas",
+      "destination": "/camisetas.html"
+    },
+    {
+      "source": "/camisas",
+      "destination": "/camisas.html"
+    },
+    {
+      "source": "/calcas",
+      "destination": "/calcas.html"
+    },
+    {
+      "source": "/tenis",
+      "destination": "/tenis.html"
+    },
+    {
+      "source": "/acessorios",
+      "destination": "/acessorios.html"
+    }
+  ]
+}
