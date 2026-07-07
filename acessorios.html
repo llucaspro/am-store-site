@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <title>Acessórios — AM Store</title>
-<meta name="description" content="Detalhes que fazem a diferença — curadoria exclusiva de peças que elevam qualquer look. — AM Store, moda masculina de alto padrão.">
+<meta name="description" content="Acessórios masculinos premium — AM Store">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,14 +40,12 @@ h1,h2,h3,p{margin:0;}
 .btn--sm{padding:11px 22px;font-size:.72rem;}
 .icon{width:19px;height:19px;flex-shrink:0;}
 .icon-sm{width:15px;height:15px;}
-/* topbar */
 .topbar{background:#000;border-bottom:1px solid var(--line);font-size:.72rem;letter-spacing:.06em;color:var(--stone);}
 .topbar__row{display:flex;align-items:center;justify-content:center;gap:28px;padding:9px 24px;text-align:center;flex-wrap:wrap;}
 .topbar__row span:nth-child(2),.topbar__row span:nth-child(3){display:none;}
 @media(min-width:640px){.topbar__row{justify-content:space-between;}.topbar__row span:nth-child(2),.topbar__row span:nth-child(3){display:inline;}}
 .topbar__row a:hover{color:var(--gold-bright);}
 .topbar__links{display:flex;gap:20px;}
-/* header */
 .header{position:sticky;top:0;z-index:100;background:transparent;border-bottom:1px solid transparent;transition:background .4s var(--ease),border-color .4s var(--ease),backdrop-filter .4s var(--ease);}
 .header.is-scrolled{background:rgba(11,11,10,.78);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--line);}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;}
@@ -61,7 +59,7 @@ h1,h2,h3,p{margin:0;}
 .nav__actions{display:flex;align-items:center;gap:6px;}
 .icon-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:transparent;border:none;color:var(--ivory);border-radius:50%;transition:color .25s,background .25s;}
 .icon-btn:hover{color:var(--gold-bright);background:rgba(198,161,91,.08);}
-.icon-btn .badge{position:absolute;top:1px;right:1px;width:15px;height:15px;background:var(--gold);color:var(--onyx);font-size:.6rem;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.icon-btn .badge{position:absolute;top:1px;right:1px;width:15px;height:15px;background:var(--gold);color:var(--onyx);font-size:.6rem;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease);}
 .icon-btn.hidden-mobile{display:none;}
 @media(min-width:640px){.icon-btn.hidden-mobile{display:inline-flex;}}
 .mobile-toggle{background:none;border:none;color:var(--ivory);width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;}
@@ -74,17 +72,14 @@ h1,h2,h3,p{margin:0;}
 .mobile-menu__links a:hover{color:var(--gold-bright);}
 .scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:190;opacity:0;visibility:hidden;transition:opacity .35s;}
 .scrim.is-open{opacity:1;visibility:visible;}
-/* category hero */
 .cat-hero{padding:80px 0 60px;border-bottom:1px solid var(--line);}
 .cat-hero__eyebrow{display:flex;align-items:center;gap:12px;font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
 .cat-hero__eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
 .cat-hero__title{font-family:var(--font-head);font-weight:800;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.01em;text-transform:uppercase;margin-bottom:12px;}
 .cat-hero__sub{color:var(--stone);font-size:1rem;max-width:520px;}
-/* filters */
 .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:48px;}
 .filter-btn{padding:9px 22px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--stone);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .25s var(--ease);}
 .filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold-bright);background:rgba(198,161,91,.07);}
-/* products grid */
 .products-grid{display:grid;grid-template-columns:1fr;gap:28px 24px;}
 @media(min-width:640px){.products-grid{grid-template-columns:repeat(2,1fr);}}
 @media(min-width:1000px){.products-grid{grid-template-columns:repeat(3,1fr);}}
@@ -112,14 +107,12 @@ h1,h2,h3,p{margin:0;}
 .product-card__body{padding-top:16px;}
 .product-card__name{font-family:var(--font-head);font-weight:600;font-size:1rem;margin-bottom:4px;}
 .product-card__desc{font-size:.82rem;color:var(--stone);margin-bottom:10px;}
-.product-card__footer{display:flex;align-items:center;justify-content:space-between;}
+.product-card__footer{display:flex;align-items:center;justify-content:space-between;gap:8px;}
 .product-card__price{font-family:var(--font-head);font-weight:700;color:var(--gold-bright);font-size:1.05rem;}
 .product-card__old-price{font-size:.82rem;color:var(--stone);text-decoration:line-through;}
-/* pagination */
 .pagination{display:flex;justify-content:center;gap:8px;margin-top:64px;}
 .pagination a{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--radius-sm);font-size:.82rem;font-weight:600;transition:all .25s;}
 .pagination a:hover,.pagination a.active{border-color:var(--gold);color:var(--gold-bright);}
-/* footer */
 .footer{background:#000;border-top:1px dashed var(--line);position:relative;padding-top:80px;}
 .footer::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:140px;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 8px,transparent 8px 14px);}
 .footer__grid{display:grid;grid-template-columns:1fr;gap:44px;padding-bottom:56px;border-bottom:1px solid var(--line);}
@@ -146,6 +139,34 @@ h1,h2,h3,p{margin:0;}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
 .reveal.is-visible{opacity:1;transform:translateY(0);}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation-duration:.01ms !important;transition-duration:.01ms !important;}.reveal{opacity:1;transform:none;}}
+
+/* ── CART DRAWER ── */
+#cartScrim2{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:290;opacity:0;visibility:hidden;transition:opacity .35s;}
+#cartScrim2.is-open{opacity:1;visibility:visible;}
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,95vw);background:var(--onyx-2);border-left:1px solid var(--line);z-index:300;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .42s cubic-bezier(.22,.61,.36,1);}
+.cart-drawer.is-open{transform:translateX(0);}
+.cart-drawer__header{display:flex;justify-content:space-between;align-items:center;padding:22px 24px 18px;border-bottom:1px solid var(--line);flex-shrink:0;}
+.cart-drawer__header h3{font-family:var(--font-head);font-weight:700;font-size:1.05rem;letter-spacing:.06em;margin:0;}
+.cart-drawer__header button{background:none;border:none;color:var(--ivory);font-size:1.6rem;cursor:pointer;line-height:1;padding:4px;opacity:.7;transition:opacity .2s;}
+.cart-drawer__header button:hover{opacity:1;}
+.cart-drawer__items{flex:1;overflow-y:auto;padding:12px 24px;}
+.cart-empty{color:var(--stone);font-size:.9rem;text-align:center;padding:48px 0;}
+.cart-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);}
+.cart-item img{width:72px;height:90px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;border:1px solid var(--line);}
+.cart-item__info{flex:1;min-width:0;}
+.cart-item__name{font-family:var(--font-head);font-weight:600;font-size:.88rem;margin-bottom:4px;line-height:1.3;}
+.cart-item__price{color:var(--gold-bright);font-weight:700;font-size:.88rem;margin-bottom:10px;}
+.cart-item__qty{display:flex;align-items:center;gap:10px;}
+.cart-item__qty button{width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ivory);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s;}
+.cart-item__qty button:hover{border-color:var(--gold);color:var(--gold-bright);}
+.cart-item__qty span{font-size:.88rem;font-weight:600;min-width:20px;text-align:center;}
+.cart-item__remove{align-self:center;background:none;border:none;color:var(--stone);font-size:1.3rem;cursor:pointer;padding:4px;transition:color .2s;line-height:1;}
+.cart-item__remove:hover{color:var(--ivory);}
+.cart-drawer__footer{padding:20px 24px 28px;border-top:1px solid var(--line);flex-shrink:0;}
+.cart-drawer__total{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.cart-drawer__total .label{font-family:var(--font-head);font-weight:600;font-size:.88rem;letter-spacing:.06em;}
+.cart-drawer__total .value{font-family:var(--font-head);font-weight:700;color:var(--gold-bright);font-size:1.15rem;}
+.btn--block{width:100%;}
 </style>
 </head>
 <body>
@@ -180,7 +201,7 @@ h1,h2,h3,p{margin:0;}
         <button class="icon-btn hidden-mobile" aria-label="Entrar na conta">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg>
         </button>
-        <button class="icon-btn" aria-label="Carrinho">
+        <button class="icon-btn" id="cartHeaderBtn" aria-label="Carrinho de compras">
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
           <span class="badge" id="cartCount">0</span>
         </button>
@@ -223,15 +244,15 @@ h1,h2,h3,p{margin:0;}
 <section class="section">
   <div class="container">
     <div class="filters reveal">
-      <button class="filter-btn active">Todos</button>
-   <button class="filter-btn">Cintos</button>
-   <button class="filter-btn">Relógios</button>
-   <button class="filter-btn">Bolsas</button>
-   <button class="filter-btn">Óculos</button>
-   <button class="filter-btn">Bijoux</button>
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+       <button class="filter-btn" data-filter="cintos">Cintos</button>
+       <button class="filter-btn" data-filter="relógios">Relógios</button>
+       <button class="filter-btn" data-filter="bolsas">Bolsas</button>
+       <button class="filter-btn" data-filter="óculos">Óculos</button>
+       <button class="filter-btn" data-filter="bijoux">Bijoux</button>
     </div>
     <div class="products-grid">
-      <article class="product-card reveal">
+<article class="product-card reveal" data-filter="cintos">
   <div class="product-card__media">
     <img class="product-card__img" src="https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?auto=format&fit=crop&w=600&q=80" alt="Cinto Couro Premium" loading="lazy">
     <span class="badge-tag badge-tag--new">NOVO</span>
@@ -254,7 +275,7 @@ h1,h2,h3,p{margin:0;}
     </div>
   </div>
 </article>
-<article class="product-card reveal reveal-delay-1">
+<article class="product-card reveal reveal-delay-1" data-filter="relógios">
   <div class="product-card__media">
     <img class="product-card__img" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Relógio Minimalista" loading="lazy">
     
@@ -277,7 +298,7 @@ h1,h2,h3,p{margin:0;}
     </div>
   </div>
 </article>
-<article class="product-card reveal reveal-delay-2">
+<article class="product-card reveal reveal-delay-2" data-filter="bijoux">
   <div class="product-card__media">
     <img class="product-card__img" src="https://images.unsplash.com/photo-1627123424574-724758594785?auto=format&fit=crop&w=600&q=80" alt="Carteira Slim Couro" loading="lazy">
     <span class="badge-tag badge-tag--new">NOVO</span>
@@ -300,7 +321,7 @@ h1,h2,h3,p{margin:0;}
     </div>
   </div>
 </article>
-<article class="product-card reveal">
+<article class="product-card reveal" data-filter="bijoux">
   <div class="product-card__media">
     <img class="product-card__img" src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80" alt="Boné Dad Hat Premium" loading="lazy">
     
@@ -323,7 +344,7 @@ h1,h2,h3,p{margin:0;}
     </div>
   </div>
 </article>
-<article class="product-card reveal reveal-delay-1">
+<article class="product-card reveal reveal-delay-1" data-filter="bolsas">
   <div class="product-card__media">
     <img class="product-card__img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80" alt="Mochila Urban Pack" loading="lazy">
     
@@ -346,7 +367,7 @@ h1,h2,h3,p{margin:0;}
     </div>
   </div>
 </article>
-<article class="product-card reveal reveal-delay-2">
+<article class="product-card reveal reveal-delay-2" data-filter="óculos">
   <div class="product-card__media">
     <img class="product-card__img" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80" alt="Óculos Aviador Titanium" loading="lazy">
     <span class="badge-tag badge-tag--sale">SALE</span>
@@ -369,7 +390,7 @@ h1,h2,h3,p{margin:0;}
     </div>
   </div>
 </article>
-<article class="product-card reveal">
+<article class="product-card reveal" data-filter="bijoux">
   <div class="product-card__media">
     <img class="product-card__img" src="https://images.unsplash.com/photo-1573408301185-9519f94816c4?auto=format&fit=crop&w=600&q=80" alt="Pulseira Couro Trançado" loading="lazy">
     
@@ -392,7 +413,7 @@ h1,h2,h3,p{margin:0;}
     </div>
   </div>
 </article>
-<article class="product-card reveal reveal-delay-1">
+<article class="product-card reveal reveal-delay-1" data-filter="bijoux">
   <div class="product-card__media">
     <img class="product-card__img" src="https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?auto=format&fit=crop&w=600&q=80" alt="Meias Kit 3 Pares" loading="lazy">
     <span class="badge-tag badge-tag--new">NOVO</span>
@@ -415,53 +436,7 @@ h1,h2,h3,p{margin:0;}
     </div>
   </div>
 </article>
-<article class="product-card reveal reveal-delay-2">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=600&q=80" alt="Luva Couro Motorista" loading="lazy">
-    
-    <button class="wishlist-btn" aria-label="Favoritar Luva Couro Motorista">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Luva Couro Motorista">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-        Adicionar ao carrinho
-      </button>
-    </div>
-  </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Luva Couro Motorista</div>
-    <div class="product-card__desc">Couro legítimo, forro antiderrapante</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 279,90</div>
-      
-    </div>
-  </div>
-</article>
-<article class="product-card reveal">
-  <div class="product-card__media">
-    <img class="product-card__img" src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?auto=format&fit=crop&w=600&q=80" alt="Lenço de Bolso Seda" loading="lazy">
-    
-    <button class="wishlist-btn" aria-label="Favoritar Lenço de Bolso Seda">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
-    </button>
-    <div class="product-card__overlay">
-      <button class="add-to-cart" data-product="Lenço de Bolso Seda">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-        Adicionar ao carrinho
-      </button>
-    </div>
-  </div>
-  <div class="product-card__body">
-    <div class="product-card__name">Lenço de Bolso Seda</div>
-    <div class="product-card__desc">Seda 100%, acabamento hems</div>
-    <div class="product-card__footer">
-      <div class="product-card__price">R$ 119,90</div>
-      
-    </div>
-  </div>
-</article>
-<article class="product-card reveal reveal-delay-1">
+<article class="product-card reveal" data-filter="bijoux">
   <div class="product-card__media">
     <img class="product-card__img" src="https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=600&q=80" alt="Porta-Cartões Couro" loading="lazy">
     <span class="badge-tag badge-tag--new">NOVO</span>
@@ -484,7 +459,53 @@ h1,h2,h3,p{margin:0;}
     </div>
   </div>
 </article>
-<article class="product-card reveal reveal-delay-2">
+<article class="product-card reveal reveal-delay-1" data-filter="óculos">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1473496169904-658ba7574b0d?auto=format&fit=crop&w=600&q=80" alt="Óculos Quadrado Classic" loading="lazy">
+    
+    <button class="wishlist-btn" aria-label="Favoritar Óculos Quadrado Classic">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Óculos Quadrado Classic">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Óculos Quadrado Classic</div>
+    <div class="product-card__desc">Acetato premium, UV400</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 299,90</div>
+      
+    </div>
+  </div>
+</article>
+<article class="product-card reveal reveal-delay-2" data-filter="cintos">
+  <div class="product-card__media">
+    <img class="product-card__img" src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=600&q=80" alt="Cinto Trançado Marrom" loading="lazy">
+    
+    <button class="wishlist-btn" aria-label="Favoritar Cinto Trançado Marrom">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7-4.3-9.3-8.7C1.2 8 2.6 4.6 6 4.6c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.4 0 4.8 3.4 3.3 6.7C19 15.7 12 20 12 20z"/></svg>
+    </button>
+    <div class="product-card__overlay">
+      <button class="add-to-cart" data-product="Cinto Trançado Marrom">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+  <div class="product-card__body">
+    <div class="product-card__name">Cinto Trançado Marrom</div>
+    <div class="product-card__desc">Couro trançado artesanal</div>
+    <div class="product-card__footer">
+      <div class="product-card__price">R$ 169,90</div>
+      
+    </div>
+  </div>
+</article>
+<article class="product-card reveal" data-filter="bijoux">
   <div class="product-card__media">
     <img class="product-card__img" src="https://images.unsplash.com/photo-1533827432537-1f1e2ddc7e1e?auto=format&fit=crop&w=600&q=80" alt="Chapéu Panamá Trançado" loading="lazy">
     <span class="badge-tag badge-tag--sale">SALE</span>
@@ -516,6 +537,25 @@ h1,h2,h3,p{margin:0;}
     </div>
   </div>
 </section>
+
+<div id="cartScrim2"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho de compras">
+  <div class="cart-drawer__header">
+    <h3>CARRINHO</h3>
+    <button id="cartClose" aria-label="Fechar carrinho">×</button>
+  </div>
+  <div class="cart-drawer__items" id="cartItems">
+    <div class="cart-empty">Seu carrinho está vazio.</div>
+  </div>
+  <div class="cart-drawer__footer">
+    <div class="cart-drawer__total">
+      <span class="label">TOTAL</span>
+      <span class="value" id="cartTotal">R$ 0,00</span>
+    </div>
+    <a href="https://wa.me/55" target="_blank" class="btn btn--primary btn--block">Finalizar pedido via WhatsApp</a>
+    <button class="btn btn--ghost btn--block" style="margin-top:10px;" id="keepShopping">Continuar comprando</button>
+  </div>
+</aside>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
@@ -523,8 +563,8 @@ h1,h2,h3,p{margin:0;}
         <div class="footer__logo">AM<span>·</span>STORE</div>
         <p class="footer__tagline">Moda masculina para quem busca presença e autenticidade.</p>
         <div class="footer__social">
-          <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a>
-          <a href="#" aria-label="WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          <a href="https://www.instagram.com/am.storeoficial018" target="_blank" rel="noopener" aria-label="AM Store no Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://wa.me/55" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
         </div>
       </div>
       <div>
@@ -564,24 +604,132 @@ h1,h2,h3,p{margin:0;}
 </footer>
 <script>
 (function(){
-  var header=document.getElementById('siteHeader');
-  function onScroll(){header.classList.toggle('is-scrolled',window.scrollY>12);}
+  /* ── header scroll ── */
+  var hdr=document.getElementById('siteHeader');
+  function onScroll(){hdr&&hdr.classList.toggle('is-scrolled',window.scrollY>12);}
   document.addEventListener('scroll',onScroll,{passive:true});onScroll();
-  var toggle=document.getElementById('mobileToggle'),closeBtn=document.getElementById('mobileClose'),menu=document.getElementById('mobileMenu'),scrim=document.getElementById('scrim');
-  function openMenu(){menu.classList.add('is-open');scrim.classList.add('is-open');toggle.setAttribute('aria-expanded','true');}
-  function closeMenu(){menu.classList.remove('is-open');scrim.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');}
-  toggle.addEventListener('click',openMenu);closeBtn.addEventListener('click',closeMenu);scrim.addEventListener('click',closeMenu);
-  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
-  var cartCountEl=document.getElementById('cartCount'),cartCount=0;
+
+  /* ── mobile menu ── */
+  var tog=document.getElementById('mobileToggle'),cBtn=document.getElementById('mobileClose'),mn=document.getElementById('mobileMenu'),sc=document.getElementById('scrim');
+  function oM(){mn.classList.add('is-open');sc.classList.add('is-open');tog.setAttribute('aria-expanded','true');}
+  function cM(){mn.classList.remove('is-open');sc.classList.remove('is-open');tog.setAttribute('aria-expanded','false');}
+  if(tog){tog.addEventListener('click',oM);}
+  if(cBtn){cBtn.addEventListener('click',cM);}
+  if(sc){sc.addEventListener('click',cM);}
+  if(mn){mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',cM);});}
+
+  /* ── FILTERS ── */
+  document.querySelectorAll('.filter-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      var f=(btn.dataset.filter||'todos').toLowerCase();
+      document.querySelectorAll('.product-card').forEach(function(card){
+        if(f==='todos'){
+          card.style.display='';
+        } else {
+          var tags=(card.dataset.filter||'').toLowerCase().split(',').map(function(t){return t.trim();});
+          card.style.display=tags.indexOf(f)!==-1?'':'none';
+        }
+      });
+    });
+  });
+
+  /* ── CART ── */
+  var CK='amstore_cart';
+  function getCart(){try{return JSON.parse(localStorage.getItem(CK)||'[]');}catch(e){return[];}}
+  function saveCart(c){localStorage.setItem(CK,JSON.stringify(c));}
+
+  function fmtPrice(p){
+    var n=parseFloat(p.replace(/[^0-9,]/g,'').replace(',','.'));
+    return isNaN(n)?0:n;
+  }
+
+  function syncBadge(){
+    var cnt=getCart().reduce(function(s,i){return s+i.qty;},0);
+    document.querySelectorAll('[id="cartCount"]').forEach(function(el){el.textContent=cnt;});
+  }
+
+  function renderCart(){
+    var list=document.getElementById('cartItems');
+    var totEl=document.getElementById('cartTotal');
+    if(!list)return;
+    var cart=getCart();
+    if(!cart.length){
+      list.innerHTML='<div class="cart-empty">Seu carrinho está vazio.</div>';
+      if(totEl)totEl.textContent='R$ 0,00';
+      return;
+    }
+    list.innerHTML=cart.map(function(i){
+      var nm=i.name.replace(/'/g,"\'");
+      return '<div class="cart-item">'
+        +'<img src="'+i.img+'" alt="'+i.name+'" loading="lazy">'
+        +'<div class="cart-item__info">'
+        +'<div class="cart-item__name">'+i.name+'</div>'
+        +'<div class="cart-item__price">'+i.price+'</div>'
+        +'<div class="cart-item__qty">'
+        +'<button onclick="window._amQ(''+nm+'',-1)">−</button>'
+        +'<span>'+i.qty+'</span>'
+        +'<button onclick="window._amQ(''+nm+'',1)">+</button>'
+        +'</div></div>'
+        +'<button class="cart-item__remove" onclick="window._amRm(''+nm+'')" aria-label="Remover">×</button>'
+        +'</div>';
+    }).join('');
+    var tot=cart.reduce(function(s,i){return s+fmtPrice(i.price)*i.qty;},0);
+    if(totEl)totEl.textContent='R$ '+tot.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+  }
+
+  window._amRm=function(name){
+    saveCart(getCart().filter(function(i){return i.name!==name;}));
+    syncBadge();renderCart();
+  };
+  window._amQ=function(name,d){
+    var c=getCart();
+    var it=c.find(function(i){return i.name===name;});
+    if(it){it.qty+=d;if(it.qty<=0)c=c.filter(function(i){return i.name!==name;});}
+    saveCart(c);syncBadge();renderCart();
+  };
+
+  function openCart(){
+    var dr=document.getElementById('cartDrawer'),sc2=document.getElementById('cartScrim2');
+    if(dr)dr.classList.add('is-open');
+    if(sc2)sc2.classList.add('is-open');
+    renderCart();
+  }
+  function closeCart(){
+    var dr=document.getElementById('cartDrawer'),sc2=document.getElementById('cartScrim2');
+    if(dr)dr.classList.remove('is-open');
+    if(sc2)sc2.classList.remove('is-open');
+  }
+
+  var cb=document.getElementById('cartHeaderBtn');
+  if(cb)cb.addEventListener('click',openCart);
+  var cc=document.getElementById('cartClose');
+  if(cc)cc.addEventListener('click',closeCart);
+  var sc2=document.getElementById('cartScrim2');
+  if(sc2)sc2.addEventListener('click',closeCart);
+  var ks=document.getElementById('keepShopping');
+  if(ks)ks.addEventListener('click',closeCart);
+
+  /* ── ADD TO CART ── */
   document.querySelectorAll('.add-to-cart').forEach(function(btn){
     var orig=btn.innerHTML;
     btn.addEventListener('click',function(){
-      cartCount++;cartCountEl.textContent=cartCount;
+      var card=btn.closest('.product-card');
+      var name=btn.dataset.product||'';
+      var price=(card&&card.querySelector('.product-card__price'))?card.querySelector('.product-card__price').textContent:'';
+      var img=(card&&card.querySelector('.product-card__img'))?card.querySelector('.product-card__img').src:'';
+      var cart=getCart();
+      var it=cart.find(function(i){return i.name===name;});
+      if(it){it.qty++;}else{cart.push({name:name,price:price,img:img,qty:1});}
+      saveCart(cart);syncBadge();
       btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Adicionado';
       btn.disabled=true;
       setTimeout(function(){btn.innerHTML=orig;btn.disabled=false;},1600);
     });
   });
+
+  /* ── WISHLIST ── */
   document.querySelectorAll('.wishlist-btn').forEach(function(btn){
     btn.addEventListener('click',function(){
       btn.classList.toggle('is-active');
@@ -589,17 +737,15 @@ h1,h2,h3,p{margin:0;}
       setTimeout(function(){btn.classList.remove('pulse');},350);
     });
   });
-  document.querySelectorAll('.filter-btn').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
-      btn.classList.add('active');
-    });
-  });
-  var revealEls=document.querySelectorAll('.reveal');
+
+  /* ── REVEAL ── */
+  var els=document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:.14,rootMargin:'0px 0px -60px 0px'});
-    revealEls.forEach(function(el){io.observe(el);});
-  }else{revealEls.forEach(function(el){el.classList.add('is-visible');});}
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('is-visible');});}
+
+  syncBadge();
 })();
 </script>
 </body>
